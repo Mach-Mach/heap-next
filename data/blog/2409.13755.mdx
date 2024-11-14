@@ -1,0 +1,24 @@
+---
+title: 'Entity-Aware Self-Attention and Contextualized GCN for Enhanced Relation Extraction in Long Sentences'
+date: '2024-11-13'
+pdf_url: 'https://arxiv.org/pdf/2411.14499'
+arx_url: 'https://arxiv.org/abs/2411.14499'
+tags:
+  [
+    'natural language processing',
+    'intra-sentence dependencies',
+    'entity-aware attention',
+    'dependency trees',
+    'semantic context',
+    'graph convolutional networks',
+    'syntactic features',
+    'relation extraction',
+    'self-attention',
+  ]
+authors: ['Xin Wang', 'Xinyi Bai']
+affiliations: ['Henan Institute of Technology, China', 'Henan Institute of Technology, China']
+categories: ['cs.AI', 'cs.CL']
+summary: ''
+---
+
+Relation extraction as an important natural Language processing (NLP) task is to identify relations between named entities in text. Recently, graph convolutional networks over dependency trees have been widely used to capture syntactic features and achieved attractive performance. However, most existing dependency-based approaches ignore the positive influence of the words outside the dependency trees, sometimes conveying rich and useful information on relation extraction. In this paper, we propose a novel model, Entity-aware Self-attention Contextualized GCN (ESC-GCN), which efficiently incorporates syntactic structure of input sentences and semantic context of sequences. To be specific, relative position self-attention obtains the overall semantic pairwise correlation related to word position, and contextualized graph convolutional networks capture rich intra-sentence dependencies between words by adequately pruning operations. Furthermore, entity-aware attention layer dynamically selects which token is more decisive to make final relation prediction. In this way, our proposed model not only reduces the noisy impact from dependency trees, but also obtains easily-ignored entity-related semantic representation. Extensive experiments on various tasks demonstrate that our model achieves encouraging performance as compared to existing dependency-based and sequence-based models. Specially, our model excels in extracting relations between entities of long sentences
