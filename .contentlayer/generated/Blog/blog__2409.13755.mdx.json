@@ -1,0 +1,63 @@
+{
+  "title": "Entity-Aware Self-Attention and Contextualized GCN for Enhanced Relation Extraction in Long Sentences",
+  "date": "2024-11-13T00:00:00.000Z",
+  "tags": [
+    "natural language processing",
+    "intra-sentence dependencies",
+    "entity-aware attention",
+    "dependency trees",
+    "semantic context",
+    "graph convolutional networks",
+    "syntactic features",
+    "relation extraction",
+    "self-attention"
+  ],
+  "categories": [
+    "cs.AI",
+    "cs.CL"
+  ],
+  "summary": "",
+  "pdf_url": "https://arxiv.org/pdf/2411.14499",
+  "arx_url": "https://arxiv.org/abs/2411.14499",
+  "authors": [
+    "Xin Wang",
+    "Xinyi Bai"
+  ],
+  "affiliations": [
+    "Henan Institute of Technology, China",
+    "Henan Institute of Technology, China"
+  ],
+  "body": {
+    "raw": "\nRelation extraction as an important natural Language processing (NLP) task is to identify relations between named entities in text. Recently, graph convolutional networks over dependency trees have been widely used to capture syntactic features and achieved attractive performance. However, most existing dependency-based approaches ignore the positive influence of the words outside the dependency trees, sometimes conveying rich and useful information on relation extraction. In this paper, we propose a novel model, Entity-aware Self-attention Contextualized GCN (ESC-GCN), which efficiently incorporates syntactic structure of input sentences and semantic context of sequences. To be specific, relative position self-attention obtains the overall semantic pairwise correlation related to word position, and contextualized graph convolutional networks capture rich intra-sentence dependencies between words by adequately pruning operations. Furthermore, entity-aware attention layer dynamically selects which token is more decisive to make final relation prediction. In this way, our proposed model not only reduces the noisy impact from dependency trees, but also obtains easily-ignored entity-related semantic representation. Extensive experiments on various tasks demonstrate that our model achieves encouraging performance as compared to existing dependency-based and sequence-based models. Specially, our model excels in extracting relations between entities of long sentences\n",
+    "code": "var Component=(()=>{var u=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var y=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var g=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),x=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of y(t))!h.call(e,o)&&o!==n&&a(e,o,{get:()=>t[o],enumerable:!(r=m(t,o))||r.enumerable});return e};var w=(e,t,n)=>(n=e!=null?u(f(e)):{},s(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),v=e=>s(a({},\"__esModule\",{value:!0}),e);var l=g((_,c)=>{c.exports=_jsx_runtime});var C={};x(C,{default:()=>p,frontmatter:()=>b});var i=w(l()),b={title:\"Entity-Aware Self-Attention and Contextualized GCN for Enhanced Relation Extraction in Long Sentences\",date:\"2024-11-13\",pdf_url:\"https://arxiv.org/pdf/2411.14499\",arx_url:\"https://arxiv.org/abs/2411.14499\",tags:[\"natural language processing\",\"intra-sentence dependencies\",\"entity-aware attention\",\"dependency trees\",\"semantic context\",\"graph convolutional networks\",\"syntactic features\",\"relation extraction\",\"self-attention\"],authors:[\"Xin Wang\",\"Xinyi Bai\"],affiliations:[\"Henan Institute of Technology, China\",\"Henan Institute of Technology, China\"],categories:[\"cs.AI\",\"cs.CL\"],summary:\"\"};function d(e){let t={p:\"p\",...e.components};return(0,i.jsx)(t.p,{children:\"Relation extraction as an important natural Language processing (NLP) task is to identify relations between named entities in text. Recently, graph convolutional networks over dependency trees have been widely used to capture syntactic features and achieved attractive performance. However, most existing dependency-based approaches ignore the positive influence of the words outside the dependency trees, sometimes conveying rich and useful information on relation extraction. In this paper, we propose a novel model, Entity-aware Self-attention Contextualized GCN (ESC-GCN), which efficiently incorporates syntactic structure of input sentences and semantic context of sequences. To be specific, relative position self-attention obtains the overall semantic pairwise correlation related to word position, and contextualized graph convolutional networks capture rich intra-sentence dependencies between words by adequately pruning operations. Furthermore, entity-aware attention layer dynamically selects which token is more decisive to make final relation prediction. In this way, our proposed model not only reduces the noisy impact from dependency trees, but also obtains easily-ignored entity-related semantic representation. Extensive experiments on various tasks demonstrate that our model achieves encouraging performance as compared to existing dependency-based and sequence-based models. Specially, our model excels in extracting relations between entities of long sentences\"})}function p(e={}){let{wrapper:t}=e.components||{};return t?(0,i.jsx)(t,{...e,children:(0,i.jsx)(d,{...e})}):d(e)}return v(C);})();\n;return Component;"
+  },
+  "_id": "blog/2409.13755.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/2409.13755.mdx",
+    "sourceFileName": "2409.13755.mdx",
+    "sourceFileDir": "blog",
+    "contentType": "mdx",
+    "flattenedPath": "blog/2409.13755"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.95,
+    "time": 57000,
+    "words": 190
+  },
+  "slug": "2409.13755",
+  "path": "blog/2409.13755",
+  "filePath": "blog/2409.13755.mdx",
+  "toc": [],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Entity-Aware Self-Attention and Contextualized GCN for Enhanced Relation Extraction in Long Sentences",
+    "datePublished": "2024-11-13T00:00:00.000Z",
+    "dateModified": "2024-11-13T00:00:00.000Z",
+    "description": "",
+    "image": "/static/images/twitter-card.png",
+    "url": "https://ai-heap.com/blog/2409.13755"
+  }
+}
