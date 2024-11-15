@@ -1,0 +1,17 @@
+---
+title: 'An Early FIRST Reproduction and Improvements to Single-Token Decoding for Fast Listwise Reranking'
+date: 2024-11-11
+tags: ['backbone models', 'learning-to-rank objective', 'zero-shot single-token reranking', 'listwise reranking', 'large language models', 'computational demands', 'inference latency', 'TREC Deep Learning datasets', 'LM pre-training', 'first-stage retrievers']
+categories: ['cs.IR', 'cs.CL']
+problem: FIRST approach integrating learning-to-rank objective and single-token logits
+solution: high computational demands of large language models for listwise reranking
+pdf_url: https://arxiv.org/pdf/2411.05508
+arx_url: https://arxiv.org/abs/2411.05508
+score: 6
+authors: ['Zijian Chen', 'Ronak Pradeep', 'Jimmy Lin']
+affiliations_aligned: ['David R. Cheriton School of Computer Science, University of Waterloo', 'David R. Cheriton School of Computer Science, University of Waterloo', 'David R. Cheriton School of Computer Science, University of Waterloo']
+affiliations: ['David R. Cheriton School of Computer Science, University of Waterloo']
+---
+
+
+Recent advances have demonstrated that large language models (LLMs) excel as listwise rerankers, but their high computational demands remain a barrier to widespread adoption. Further, the traditional language modeling (LM) objective is not ideally suited for reranking tasks. FIRST is a novel approach that addresses these challenges by integrating a learning-to-rank objective and leveraging the logits of only the first generated token, thereby significantly reducing inference latency compared to traditional LLM rerankers. In this study, we extend the evaluation of FIRST to the TREC Deep Learning datasets (DL19-22), validating its robustness across diverse domains. We investigate the influence of different first-stage retrievers on FIRST rerankers, observing diminishing returns and patterns consistent with traditional LLM rerankers. Through applying the FIRST objective to a broader range of backbone models, we achieve effectiveness surpassing the original implementation. Our experiments confirm that fast reranking with single-token logits does not compromise out-of-domain reranking quality. To better quantify the computational savings in the original study, we measure and compare latency to find a 21%-42% gain across various models and benchmarks. Moreover, while LM training implicitly improves zero-shot single-token reranking, our experiments also raise questions about whether LM pre-training may hinder subsequent fine-tuning with the FIRST objective. These findings pave the way for more efficient and effective listwise reranking in future applications.

@@ -1,0 +1,17 @@
+---
+title: 'Leveraging Label Semantics and Meta-Label Refinement for Multi-Label Question Classification'
+date: 2024-11-04
+tags: ['distribution imbalance', 'Math LLM', 'Retrieval Reranking', 'personalized learning', 'resource recommendation', 'semantic overlap', 'class center learning', 'F1 scores', 'meta-label refinement', 'educational resources', 'Precision@k', 'multi-label question classification', 'label semantics']
+categories: ['cs.CL', 'cs.LG']
+problem: RR2QC, a novel Retrieval Reranking method for multi-label Question Classification
+solution: challenges with semantic overlap and distribution imbalance of labels in the multi-label context
+pdf_url: http://arxiv.org/pdf/2411.01841v1
+arx_url: http://arxiv.org/abs/2411.01841v1
+score: 6
+authors: ['Shi Dong', 'Xiaobei Niu', 'Rui Zhong', 'Zhifeng Wang', 'Mingzhang Zuo']
+affiliations_aligned: ['Central China Normal University', 'Central China Normal University', 'Central China Normal University', 'Central China Normal University', 'Central China Normal University']
+affiliations: ['Central China Normal University']
+---
+
+
+Accurate annotation of educational resources is critical in the rapidly advancing field of online education due to the complexity and volume of content. Existing classification methods face challenges with semantic overlap and distribution imbalance of labels in the multi-label context, which impedes effective personalized learning and resource recommendation. This paper introduces RR2QC, a novel Retrieval Reranking method To multi-label Question Classification by leveraging label semantics and meta-label refinement. Firstly, RR2QC leverages semantic relationships within and across label groups to enhance pre-training strategie in multi-label context. Next, a class center learning task is introduced, integrating label texts into downstream training to ensure questions consistently align with label semantics, retrieving the most relevant label sequences. Finally, this method decomposes labels into meta-labels and trains a meta-label classifier to rerank the retrieved label sequences. In doing so, RR2QC enhances the understanding and prediction capability of long-tail labels by learning from meta-labels frequently appearing in other labels. Addtionally, a Math LLM is used to generate solutions for questions, extracting latent information to further refine the model's insights. Experimental results demonstrate that RR2QC outperforms existing classification methods in Precision@k and F1 scores across multiple educational datasets, establishing it as a potent enhancement for online educational content utilization.

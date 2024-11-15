@@ -1,0 +1,17 @@
+---
+title: 'QUILL: Quotation Generation Enhancement of Large Language Models'
+date: 2024-11-06
+tags: ['bilingual knowledge base', 'human preferences', 'Large language models', 'reranking metric', 'automatic metrics', 'evaluation system', 'quotation generation']
+categories: ['cs.CL', 'cs.AI']
+problem: quotation knowledge base and reranking metric
+solution: struggles with quotation generation
+pdf_url: http://arxiv.org/pdf/2411.03675v1
+arx_url: http://arxiv.org/abs/2411.03675v1
+score: 6
+authors: ['Jin Xiao', 'Bowei Zhang', 'Qianyu He', 'Jiaqing Liang', 'Feng Wei', 'Jinglei Chen', 'Zujie Liang', 'Deqing Yang', 'Yanghua Xiao']
+affiliations_aligned: ['School of Data Science, Fudan University', 'School of Data Science, Fudan University', 'Shanghai Key Laboratory of Data Science, School of Computer Science, Fudan University', 'School of Data Science, Fudan University', 'MYbank, Ant Group', 'MYbank, Ant Group', 'MYbank, Ant Group', 'School of Data Science, Fudan University', 'Shanghai Key Laboratory of Data Science, School of Computer Science, Fudan University']
+affiliations: ['School of Data Science, Fudan University', 'MYbank, Ant Group', 'Shanghai Key Laboratory of Data Science, School of Computer Science, Fudan University']
+---
+
+
+While Large language models (LLMs) have become excellent writing assistants, they still struggle with quotation generation. This is because they either hallucinate when providing factual quotations or fail to provide quotes that exceed human expectations. To bridge the gap, we systematically study how to evaluate and improve LLMs' performance in quotation generation tasks. We first establish a holistic and automatic evaluation system for quotation generation task, which consists of five criteria each with corresponding automatic metric. To improve the LLMs' quotation generation abilities, we construct a bilingual knowledge base that is broad in scope and rich in dimensions, containing up to 32,022 quotes. Moreover, guided by our critiria, we further design a quotation-specific metric to rerank the retrieved quotations from the knowledge base. Extensive experiments show that our metrics strongly correlate with human preferences. Existing LLMs struggle to generate desired quotes, but our quotation knowledge base and reranking metric help narrow this gap. Our dataset and code are publicly available at https://github.com/GraceXiaoo/QUILL.
