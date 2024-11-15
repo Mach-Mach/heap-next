@@ -111,7 +111,7 @@ export const Blog = defineDocumentType(() => ({
     affiliations: { type: 'list', of: { type: 'string' }, default: [] },
     layout: { type: 'string' },
     problem: { type: 'string' },
-    solutions: { type: 'string' },
+    solution: { type: 'string' },
     score: { type: 'number' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
