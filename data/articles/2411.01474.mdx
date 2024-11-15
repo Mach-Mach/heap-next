@@ -1,7 +1,6 @@
 ---
-title: MoCE: Adaptive Mixture of Contextualization Experts for Byte-based
-  Neural Machine Translation
-date: 2024_11_03
+title: MoCE: Adaptive Mixture of Contextualization Experts for Byte-based   Neural Machine Translation
+date: 2024-11-03
 tags: ['adaptive approach', 'byte-based machine translation', 'Ted-59 dataset', 'Adaptive MultiScale-Headed Attention', 'local contextualization', 'contextualization experts', 'multilingual settings', 'attention heads', 'hyper-parameters', 'Unicode encoding']
 categories: ['cs.CL']
 problem: Adaptive MultiScale-Headed Attention (Ada-MSHA)
@@ -15,20 +14,4 @@ affiliations: ['Key Laboratory of Intelligent Information Processing, Institute 
 ---
 
 
-Byte-based machine translation systems have shown significant potential in
-massively multilingual settings. Unicode encoding, which maps each character to
-specific byte(s), eliminates the emergence of unknown words, even in new
-languages, enabling broad language scalability. However, byte-level
-tokenization results in sequences that are hard to interpret due to limited
-semantic information per byte. Local contextualization has proven effective in
-assigning initial semantics to tokens, improving sentence comprehension.
-Nevertheless, variations in encoding rules across languages necessitate an
-adaptive approach for effective contextualization. To this end, we propose
-Adaptive MultiScale-Headed Attention (Ada-MSHA), adaptively selecting and
-mixing attention heads, which are treated as contextualization experts. This
-enhances the flexibility of contextualization scales and improves the potential
-to discover a better strategy than previous methods. Experiment results show
-that our method outperforms existing methods without extensive manual
-adjustment of hyper-parameters and surpasses subword-based models with fewer
-parameters in Ted-59 dataset. Our code is available at
-https://github.com/ictnlp/MoCE.
+Byte-based machine translation systems have shown significant potential in massively multilingual settings. Unicode encoding, which maps each character to specific byte(s), eliminates the emergence of unknown words, even in new languages, enabling broad language scalability. However, byte-level tokenization results in sequences that are hard to interpret due to limited semantic information per byte. Local contextualization has proven effective in assigning initial semantics to tokens, improving sentence comprehension. Nevertheless, variations in encoding rules across languages necessitate an adaptive approach for effective contextualization. To this end, we propose Adaptive MultiScale-Headed Attention (Ada-MSHA), adaptively selecting and mixing attention heads, which are treated as contextualization experts. This enhances the flexibility of contextualization scales and improves the potential to discover a better strategy than previous methods. Experiment results show that our method outperforms existing methods without extensive manual adjustment of hyper-parameters and surpasses subword-based models with fewer parameters in Ted-59 dataset. Our code is available at https://github.com/ictnlp/MoCE.

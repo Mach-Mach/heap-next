@@ -1,7 +1,6 @@
 ---
-title: Leveraging Large Language Models in Code Question Answering: Baselines
-  and Issues
-date: 2024_11_05
+title: Leveraging Large Language Models in Code Question Answering: Baselines   and Issues
+date: 2024-11-05
 tags: ['error analysis', 'Python', 'BERTScore F1', 'large language models', 'question answering', 'BLEU-4', 'dataset preprocessing', 'Exact Match', 'source code', 'grammar correction', 'BLEURT']
 categories: ['cs.CL', 'cs.AI']
 problem: fine-tuning a large language model on a unified dataset of questions and answers for Python code
@@ -15,22 +14,4 @@ affiliations: ['National Research University Higher School of Economics', 'Insti
 ---
 
 
-Question answering over source code provides software engineers and project
-managers with helpful information about the implemented features of a software
-product. This paper presents a work devoted to using large language models for
-question answering over source code in Python. The proposed method for
-implementing a source code question answering system involves fine-tuning a
-large language model on a unified dataset of questions and answers for Python
-code. To achieve the highest quality answers, we tested various models trained
-on datasets preprocessed in different ways: a dataset without grammar
-correction, a dataset with grammar correction, and a dataset augmented with the
-generated summaries. The model answers were also analyzed for errors manually.
-We report BLEU-4, BERTScore F1, BLEURT, and Exact Match metric values, along
-with the conclusions from the manual error analysis. The obtained experimental
-results highlight the current problems of the research area, such as poor
-quality of the public genuine question-answering datasets. In addition, the
-findings include the positive effect of the grammar correction of the training
-data on the testing metric values. The addressed findings and issues could be
-important for other researchers who attempt to improve the quality of source
-code question answering solutions. The training and evaluation code is publicly
-available at https://github.com/IU-AES-AI4Code/CodeQuestionAnswering.
+Question answering over source code provides software engineers and project managers with helpful information about the implemented features of a software product. This paper presents a work devoted to using large language models for question answering over source code in Python. The proposed method for implementing a source code question answering system involves fine-tuning a large language model on a unified dataset of questions and answers for Python code. To achieve the highest quality answers, we tested various models trained on datasets preprocessed in different ways: a dataset without grammar correction, a dataset with grammar correction, and a dataset augmented with the generated summaries. The model answers were also analyzed for errors manually. We report BLEU-4, BERTScore F1, BLEURT, and Exact Match metric values, along with the conclusions from the manual error analysis. The obtained experimental results highlight the current problems of the research area, such as poor quality of the public genuine question-answering datasets. In addition, the findings include the positive effect of the grammar correction of the training data on the testing metric values. The addressed findings and issues could be important for other researchers who attempt to improve the quality of source code question answering solutions. The training and evaluation code is publicly available at https://github.com/IU-AES-AI4Code/CodeQuestionAnswering.

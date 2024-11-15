@@ -1,6 +1,6 @@
 ---
 title: Addressing Uncertainty in LLMs to Enhance Reliability in Generative AI
-date: 2024_11_04
+date: 2024-11-04
 tags: ['semantic clusters', 'dynamic semantic clustering', 'entropy', 'AURAC', 'Llama2', 'AUROC', 'Conformal Prediction framework', 'uncertainty in LLMs', 'AUARC', 'Mistral', 'Chinese Restaurant Process', 'SOTA performance', 'conformal predictor', 'uncertainty quantification', 'question answering benchmarks']
 categories: ['cs.AI']
 problem: dynamic semantic clustering approach leveraging Conformal Prediction framework
@@ -14,18 +14,4 @@ affiliations: ['Neuro-symbolic Computing and Intelligence, SRI, Menlo Park, USA'
 ---
 
 
-In this paper, we present a dynamic semantic clustering approach inspired by
-the Chinese Restaurant Process, aimed at addressing uncertainty in the
-inference of Large Language Models (LLMs). We quantify uncertainty of an LLM on
-a given query by calculating entropy of the generated semantic clusters.
-Further, we propose leveraging the (negative) likelihood of these clusters as
-the (non)conformity score within Conformal Prediction framework, allowing the
-model to predict a set of responses instead of a single output, thereby
-accounting for uncertainty in its predictions. We demonstrate the effectiveness
-of our uncertainty quantification (UQ) technique on two well known question
-answering benchmarks, COQA and TriviaQA, utilizing two LLMs, Llama2 and
-Mistral. Our approach achieves SOTA performance in UQ, as assessed by metrics
-such as AUROC, AUARC, and AURAC. The proposed conformal predictor is also shown
-to produce smaller prediction sets while maintaining the same probabilistic
-guarantee of including the correct response, in comparison to existing SOTA
-conformal prediction baseline.
+In this paper, we present a dynamic semantic clustering approach inspired by the Chinese Restaurant Process, aimed at addressing uncertainty in the inference of Large Language Models (LLMs). We quantify uncertainty of an LLM on a given query by calculating entropy of the generated semantic clusters. Further, we propose leveraging the (negative) likelihood of these clusters as the (non)conformity score within Conformal Prediction framework, allowing the model to predict a set of responses instead of a single output, thereby accounting for uncertainty in its predictions. We demonstrate the effectiveness of our uncertainty quantification (UQ) technique on two well known question answering benchmarks, COQA and TriviaQA, utilizing two LLMs, Llama2 and Mistral. Our approach achieves SOTA performance in UQ, as assessed by metrics such as AUROC, AUARC, and AURAC. The proposed conformal predictor is also shown to produce smaller prediction sets while maintaining the same probabilistic guarantee of including the correct response, in comparison to existing SOTA conformal prediction baseline.
