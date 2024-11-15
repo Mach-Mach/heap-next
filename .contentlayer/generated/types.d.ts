@@ -48,8 +48,12 @@ export type Blog = {
   arx_url: string
   images?: any | undefined
   authors: string[]
+  affiliations_aligned: string[]
   affiliations: string[]
   layout?: string | undefined
+  problem?: string | undefined
+  solution?: string | undefined
+  score?: number | undefined
   bibliography?: string | undefined
   canonicalUrl?: string | undefined
   github?: string | undefined

@@ -12,6 +12,7 @@
   "pdf_url": "https://arxiv.org/pdf/2411.03163",
   "arx_url": "https://arxiv.org/abs/2411.03163",
   "authors": [],
+  "affiliations_aligned": [],
   "affiliations": [],
   "body": {
     "raw": "\n# Nested Routes\n\nThe blog template supports posts in nested sub-folders. This helps in organisation and can be used to group posts of similar content e.g. a multi-part series. This post is itself an example of a nested route! It's located in the `/data/blog/nested-route` folder.\n\n## How\n\nSimplify create multiple folders inside the main `/data/articles` folder and add your `.md`/`.mdx` files to them. You can even create something like `/data/articles/nested-route/deeply-nested-route/my-post.md`\n\nWe use Next.js catch all routes to handle the routing and path creations.\n\n## Use Cases\n\nHere are some reasons to use nested routes\n\n- More logical content organisation (blogs will still be displayed based on the created date)\n- Multi-part posts\n- Different sub-routes for each author\n- Internationalization (though it would be recommended to use [Next.js built-in i8n routing](https://nextjs.org/docs/advanced-features/i18n-routing))\n\n## Note\n\n- The previous/next post links at bottom of the template are currently sorted by date. One could explore modifying the template to refer the reader to the previous/next post in the series, rather than by date.\n",
