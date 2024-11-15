@@ -123,7 +123,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   ))}
                 </ul>
               </dd>
-              <dd>
+              {/* <dd>
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {affiliations.map(affiliation => (
                     <li className="mt8 flex items-center space-x-2" key={affiliation}>
@@ -134,7 +134,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     </li>
                   ))}
                 </ul>
-              </dd>
+              </dd> */}
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
