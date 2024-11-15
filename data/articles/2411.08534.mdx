@@ -1,0 +1,17 @@
+---
+title: Neural Topic Modeling with Large Language Models in the Loop
+date: 2024_11_14
+tags: ['interpretability', 'Optimal Transport', 'natural language processing', 'Neural Topic Models', 'topic modeling', 'Large Language Models', 'document representation']
+categories: ['cs.CL']
+problem: LLM-in-the-loop framework (LLM-ITL)
+solution: ['limitations of Large Language Models in topic modeling']
+pdf_url: https://arxiv.org/pdf/2411.08534
+arx_url: https://arxiv.org/abs/2411.08534
+score: 5
+authors: ['Xiaohao Yang', 'He Zhao', 'Weijie Xu', 'Yuanyuan Qi', 'Jueqing Lu', 'Dinh Phung', 'Lan Du']
+affiliations_aligned: ['Monash University, AU', 'CSIRO’s Data61, AU', 'Amazon, US', 'Monash University, AU', 'Monash University, AU', 'Monash University, AU', 'Monash University, AU']
+affiliations: ['Amazon, US', 'Monash University, AU', 'CSIRO’s Data61, AU']
+---
+
+
+Topic modeling is a fundamental task in natural language processing, allowing the discovery of latent thematic structures in text corpora. While Large Language Models (LLMs) have demonstrated promising capabilities in topic discovery, their direct application to topic modeling suffers from issues such as incomplete topic coverage, misalignment of topics, and inefficiency. To address these limitations, we propose LLM-ITL, a novel LLM-in-the-loop framework that integrates LLMs with many existing Neural Topic Models (NTMs). In LLM-ITL, global topics and document representations are learned through the NTM, while an LLM refines the topics via a confidence-weighted Optimal Transport (OT)-based alignment objective. This process enhances the interpretability and coherence of the learned topics, while maintaining the efficiency of NTMs. Extensive experiments demonstrate that LLM-ITL can help NTMs significantly improve their topic interpretability while maintaining the quality of document representation.

@@ -1,0 +1,36 @@
+---
+title: Contrasting with Symile: Simple Model-Agnostic Representation Learning
+  for Unlimited Modalities
+date: 2024_11_01
+tags: ['multilingual dataset', 'retrieval', 'contrastive learning', 'CLIP', 'architecture-agnostic objective', 'representation learning', 'higher-order information', 'cross-modal classification', 'multimodal data', 'clinical dataset']
+categories: ['cs.CL', 'cs.CV', 'cs.AI', 'cs.LG', 'stat.ML']
+problem: Symile, a simple contrastive learning approach that captures higher-order information between any number of modalities
+solution: ['limitation of pairwise application of CLIP in capturing joint information between modalities']
+pdf_url: http://arxiv.org/pdf/2411.01053v1
+arx_url: http://arxiv.org/abs/2411.01053v1
+score: 5
+authors: ['Adriel Saporta', 'Aahlad Puli', 'Mark Goldstein', 'Rajesh Ranganath']
+affiliations_aligned: ['New York University', 'New York University', 'New York University', 'New York University']
+affiliations: ['New York University']
+---
+
+
+Contrastive learning methods, such as CLIP, leverage naturally paired
+data-for example, images and their corresponding text captions-to learn general
+representations that transfer efficiently to downstream tasks. While such
+approaches are generally applied to two modalities, domains such as robotics,
+healthcare, and video need to support many types of data at once. We show that
+the pairwise application of CLIP fails to capture joint information between
+modalities, thereby limiting the quality of the learned representations. To
+address this issue, we present Symile, a simple contrastive learning approach
+that captures higher-order information between any number of modalities. Symile
+provides a flexible, architecture-agnostic objective for learning
+modality-specific representations. To develop Symile's objective, we derive a
+lower bound on total correlation, and show that Symile representations for any
+set of modalities form a sufficient statistic for predicting the remaining
+modalities. Symile outperforms pairwise CLIP, even with modalities missing in
+the data, on cross-modal classification and retrieval across several
+experiments including on an original multilingual dataset of 33M image, text
+and audio samples and a clinical dataset of chest X-rays, electrocardiograms,
+and laboratory measurements. All datasets and code used in this work are
+publicly available at https://github.com/rajesh-lab/symile.

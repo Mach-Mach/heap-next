@@ -1,0 +1,17 @@
+---
+title: Learning Multi-Agent Collaborative Manipulation for Long-Horizon Quadrupedal Pushing
+date: 2024_11_12
+tags: ['hierarchical control', 'multi-agent reinforcement learning', 'quadrupedal locomotion', 'simulation evaluation', 'locomotion policy', 'real-world applications', 'decentralized goal-conditioned policy', 'RRT planner', 'obstacle-aware pushing', 'manipulation capabilities']
+categories: ['cs.AI', 'cs.MA', 'cs.LG', 'cs.RO']
+problem: hierarchical multi-agent reinforcement learning framework
+solution: ['limited manipulation capabilities of quadrupedal robots']
+pdf_url: https://arxiv.org/pdf/2411.07104
+arx_url: https://arxiv.org/abs/2411.07104
+score: 5
+authors: ['Chuye Hong', 'Yuming Feng', 'Yaru Niu', 'Shiqi Liu', 'Yuxiang Yang', 'Wenhao Yu', 'Tingnan Zhang', 'Jie Tan', 'Ding Zhao']
+affiliations_aligned: ['Carnegie Mellon University', 'Carnegie Mellon University', 'Carnegie Mellon University', 'Carnegie Mellon University', 'Google DeepMind', 'Google DeepMind', 'Google DeepMind', 'Google DeepMind', 'Carnegie Mellon University']
+affiliations: ['Google DeepMind', 'Carnegie Mellon University']
+---
+
+
+Recently, quadrupedal locomotion has achieved significant success, but their manipulation capabilities, particularly in handling large objects, remain limited, restricting their usefulness in demanding real-world applications such as search and rescue, construction, industrial automation, and room organization. This paper tackles the task of obstacle-aware, long-horizon pushing by multiple quadrupedal robots. We propose a hierarchical multi-agent reinforcement learning framework with three levels of control. The high-level controller integrates an RRT planner and a centralized adaptive policy to generate subgoals, while the mid-level controller uses a decentralized goal-conditioned policy to guide the robots toward these sub-goals. A pre-trained low-level locomotion policy executes the movement commands. We evaluate our method against several baselines in simulation, demonstrating significant improvements over baseline approaches, with 36.0% higher success rates and 24.5% reduction in completion time than the best baseline. Our framework successfully enables long-horizon, obstacle-aware manipulation tasks like Push-Cuboid and Push-T on Go1 robots in the real world.

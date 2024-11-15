@@ -1,0 +1,17 @@
+---
+title: QCG-Rerank: Chunks Graph Rerank with Query Expansion in Retrieval-Augmented LLMs for Tourism Domain
+date: 2024_11_14
+tags: ['query expansion', 'Retrieval-Augmented Generation', 'similarity scores', 'chunks graph', 'Large Language Models', 'evaluation datasets', 'transition probabilities', 'information retrieval techniques', 'tourism domain']
+categories: ['cs.CL', 'cs.AI']
+problem: QCG-Rerank model
+solution: ['irrelevant or contradictory information in retrieval-augmented generation']
+pdf_url: https://arxiv.org/pdf/2411.08724
+arx_url: https://arxiv.org/abs/2411.08724
+score: 6
+authors: ['Qikai Wei', 'Mingzhi Yang', 'Chunlong Han', 'Jingfu Wei', 'Minghao Zhang', 'Feifei Shi', 'Huansheng Ning']
+affiliations_aligned: ['a,b', 'c', 'a,b', 'a,b', 'a,b', 'a,b', 'a,b']
+affiliations: ['a,b', 'c']
+---
+
+
+Retrieval-Augmented Generation (RAG) mitigates the issue of hallucination in Large Language Models (LLMs) by integrating information retrieval techniques. However, in the tourism domain, since the query is usually brief and the content in the database is diverse, existing RAG may contain a significant amount of irrelevant or contradictory information contents after retrieval. To address this challenge, we propose the QCG-Rerank model. This model first performs an initial retrieval to obtain candidate chunks and then enhances semantics by extracting critical information to expand the original query. Next, we utilize the expanded query and candidate chunks to calculate similarity scores as the initial transition probability and construct the chunks graph. Subsequently, We iteratively compute the transition probabilities based on an initial estimate until convergence. The chunks with the highest score are selected and input into the LLMs to generate responses. We evaluate the model on Cultour, IIRC, StrategyQA, HotpotQA, SQuAD, and MuSiQue datasets. The experimental results demonstrate the effectiveness and superiority of the QCG-Rerank method.

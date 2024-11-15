@@ -1,0 +1,37 @@
+---
+title: Next-Token Prediction Task Assumes Optimal Data Ordering for LLM
+  Training in Proof Generation
+date: 2024_10_30
+tags: ['proof success rate', 'large language models', 'digit multiplication', 'data ordering', 'proof generation', 'training performance', 'intuitionistic propositional logic', 'order effect']
+categories: ['cs.CL', 'cs.AI']
+problem: intuitively sequential order for proof training
+solution: ['suboptimal order of proof data in training']
+pdf_url: http://arxiv.org/pdf/2411.00863v1
+arx_url: http://arxiv.org/abs/2411.00863v1
+score: 5
+authors: ['Chenyang An', 'Shima Imani', 'Feng Yao', 'Chengyu Dong', 'Ali Abbasi', 'Harsh Shrivastava', 'Samuel Buss', 'Jingbo Shang', 'Gayathri Mahalingam', 'Pramod Sharma', 'Maurice Diesendruck']
+affiliations_aligned: ['University of California, San Diego', 'Microsoft Research', 'University of California, San Diego', 'University of California, San Diego', 'Vanderbilt University', 'Microsoft Research', 'University of California, San Diego', 'University of California, San Diego', 'Microsoft Research', 'Microsoft Research', 'Microsoft Research']
+affiliations: ['Microsoft Research', 'Vanderbilt University', 'University of California, San Diego']
+---
+
+
+In the field of large language model (LLM)-based proof generation, despite
+being trained on extensive corpora such as OpenWebMath and Arxiv, these models
+still exhibit only modest performance on proving tasks of moderate difficulty.
+We believe that this is partly due to the suboptimal order of each proof data
+used in training. Published proofs often follow a purely logical order, where
+each step logically proceeds from the previous steps based on the deductive
+rules. However, this order aims to facilitate the verification of the proof's
+soundness, rather than to help people and models learn the discovery process of
+the proof. In proof generation, we argue that the optimal order for one
+training data sample occurs when the relevant intermediate supervision for a
+particular proof step in the proof is always positioned to the left of that
+proof step. We call such order the intuitively sequential order. We validate
+our claims using two tasks: intuitionistic propositional logic theorem-proving
+and digit multiplication. Our experiments verify the order effect and provide
+support for our explanations. We demonstrate that training is most effective
+when the proof is in the intuitively sequential order. Moreover, the order
+effect and the performance gap between models trained on different data orders
+are substantial -- with an 11 percent improvement in proof success rate
+observed in the propositional logic theorem-proving task, between models
+trained on the optimal order compared to the worst order.

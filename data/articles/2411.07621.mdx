@@ -1,0 +1,17 @@
+---
+title: Mix from Failure: Confusion-Pairing Mixup for Long-Tailed Recognition
+date: 2024_11_13
+tags: ['imbalanced dataset', 'computer vision', 'confusion pairs', 'sample diversity', 'confusion distribution', 'mixup formulation', 'data deficiency', 'long-tailed image recognition', 'decision boundaries']
+categories: ['cs.CV']
+problem: Confusion-Pairing Mixup
+solution: ['long-tailed image recognition']
+pdf_url: https://arxiv.org/pdf/2411.07621
+arx_url: https://arxiv.org/abs/2411.07621
+score: 5
+authors: ['Youngseok Yoon', 'Sangwoo Hong', 'Hyungjoon Joo', 'Yao Qin', 'Haewon Jeong', 'Jungwoo Lee']
+affiliations_aligned: ['UCSB, California, USA', 'Seoul National University, South Korea', 'Seoul National University, South Korea', 'UCSB, Google, California, USA', 'UCSB, California, USA', 'Seoul National University, South Korea']
+affiliations: ['Seoul National University, South Korea', 'UCSB, California, USA', 'UCSB, Google, California, USA']
+---
+
+
+Long-tailed image recognition is a computer vision problem considering a real-world class distribution rather than an artificial uniform. Existing methods typically detour the problem by i) adjusting a loss function, ii) decoupling classifier learning, or iii) proposing a new multi-head architecture called experts. In this paper, we tackle the problem from a different perspective to augment a training dataset to enhance the sample diversity of minority classes. Specifically, our method, namely Confusion-Pairing Mixup (CP-Mix), estimates the confusion distribution of the model and handles the data deficiency problem by augmenting samples from confusion pairs in real-time. In this way, CP-Mix trains the model to mitigate its weakness and distinguish a pair of classes it frequently misclassifies. In addition, CP-Mix utilizes a novel mixup formulation to handle the bias in decision boundaries that originated from the imbalanced dataset. Extensive experiments demonstrate that CP-Mix outperforms existing methods for long-tailed image recognition and successfully relieves the confusion of the classifier.

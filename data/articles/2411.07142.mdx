@@ -1,0 +1,17 @@
+---
+title: Greenback Bears and Fiscal Hawks: Finance is a Jungle and Text Embeddings Must Adapt
+date: 2024_11_12
+tags: ['text embeddings', 'question answering', 'finance', 'benchmarks', 'domain-specific training', 'public datasets', 'dataset scale', 'hard negative mining']
+categories: ['cs.CL']
+problem: BAM embeddings finetuned on a dataset of query-passage pairs
+solution: ['challenges for general-purpose text embeddings in finance']
+pdf_url: https://arxiv.org/pdf/2411.07142
+arx_url: https://arxiv.org/abs/2411.07142
+score: 6
+authors: ['Peter Anderson', 'Mano Vikash Janardhanan', 'Jason He', 'Wei Cheng', 'Charlie Flanagan']
+affiliations_aligned: ['Balyasny Asset Management', 'Balyasny Asset Management', 'Balyasny Asset Management', 'Balyasny Asset Management', 'Balyasny Asset Management']
+affiliations: ['Balyasny Asset Management']
+---
+
+
+Financial documents are filled with specialized terminology, arcane jargon, and curious acronyms that pose challenges for general-purpose text embeddings. Yet, few text embeddings specialized for finance have been reported in the literature, perhaps in part due to a lack of public datasets and benchmarks. We present BAM embeddings, a set of text embeddings finetuned on a carefully constructed dataset of 14.3M query-passage pairs. Demonstrating the benefits of domain-specific training, BAM embeddings achieve Recall@1 of 62.8% on a held-out test set, vs. only 39.2% for the best general-purpose text embedding from OpenAI. Further, BAM embeddings increase question answering accuracy by 8% on FinanceBench and show increased sensitivity to the finance-specific elements that are found in detailed, forward-looking and company and date-specific queries. To support further research we describe our approach in detail, quantify the importance of hard negative mining and dataset scale.

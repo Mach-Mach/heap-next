@@ -1,0 +1,37 @@
+---
+title: PadChest-GR: A Bilingual Chest X-ray Dataset for Grounded Radiology
+  Report Generation
+date: 2024_11_07
+tags: ['grounded radiology report generation', 'CXR images', 'model training', 'chest X-ray dataset', 'bi-lingual dataset', 'radiology report generation', 'clinical imaging', 'annotation', 'dataset curation', 'localization']
+categories: ['cs.CL', 'cs.CV', 'cs.AI']
+problem: PadChest-GR dataset for training GRRG models
+solution: ['lack of manually annotated chest X-ray datasets for training GRRG models']
+pdf_url: http://arxiv.org/pdf/2411.05085v1
+arx_url: http://arxiv.org/abs/2411.05085v1
+score: 7
+authors: ['Daniel C. Castro', 'Aurelia Bustos', 'Shruthi Bannur', 'Stephanie L. Hyland', 'Kenza Bouzid', 'Maria Teodora Wetscherek', 'Maria Dolores Sánchez-Valverde', 'Lara Jaques-Pérez', 'Lourdes Pérez-Rodríguez', 'Kenji Takeda', 'José María Salinas', 'Javier Alvarez-Valle', 'Joaquín Galant Herrero', 'Antonio Pertusa', 'Maria Dolores Sánchez Valverde', 'Lara Jaques Pérez', 'Lourdes Pérez Rodríguez']
+affiliations_aligned: ['Microsoft Research, Cambridge, UK', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Department of Radiology, University Hospital Sant Joan d’Alacant, Spain', 'Department of Radiology, University Hospital Sant Joan d’Alacant, Spain', 'Department of Radiology, University Hospital Sant Joan d’Alacant, Spain']
+affiliations: ['', 'Microsoft Research, Cambridge, UK', 'Department of Radiology, University Hospital Sant Joan d’Alacant, Spain']
+---
+
+
+Radiology report generation (RRG) aims to create free-text radiology reports
+from clinical imaging. Grounded radiology report generation (GRRG) extends RRG
+by including the localisation of individual findings on the image. Currently,
+there are no manually annotated chest X-ray (CXR) datasets to train GRRG
+models. In this work, we present a dataset called PadChest-GR
+(Grounded-Reporting) derived from PadChest aimed at training GRRG models for
+CXR images. We curate a public bi-lingual dataset of 4,555 CXR studies with
+grounded reports (3,099 abnormal and 1,456 normal), each containing complete
+lists of sentences describing individual present (positive) and absent
+(negative) findings in English and Spanish. In total, PadChest-GR contains
+7,037 positive and 3,422 negative finding sentences. Every positive finding
+sentence is associated with up to two independent sets of bounding boxes
+labelled by different readers and has categorical labels for finding type,
+locations, and progression. To the best of our knowledge, PadChest-GR is the
+first manually curated dataset designed to train GRRG models for understanding
+and interpreting radiological images and generated text. By including detailed
+localization and comprehensive annotations of all clinically relevant findings,
+it provides a valuable resource for developing and evaluating GRRG models from
+CXR images. PadChest-GR can be downloaded under request from
+https://bimcv.cipf.es/bimcv-projects/padchest-gr/

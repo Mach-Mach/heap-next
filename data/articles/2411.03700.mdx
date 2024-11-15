@@ -1,0 +1,41 @@
+---
+title: The Root Shapes the Fruit: On the Persistence of Gender-Exclusive Harms
+  in Aligned Language Models
+date: 2024_11_06
+tags: ['preference-finetuned models', 'supervised finetuning', 'gender-diverse identities', 'bias evaluation benchmarks', 'community-informed bias evaluation frameworks', 'harmful biases', 'alignment techniques', 'Direct Preference Optimization', 'natural-language assistants']
+categories: ['cs.CL']
+problem: flexible framework for measuring harmful biases in implicit reward signals
+solution: ['perpetuation of harmful biases in aligned language models']
+pdf_url: http://arxiv.org/pdf/2411.03700v1
+arx_url: http://arxiv.org/abs/2411.03700v1
+score: 5
+authors: ['Anaelia Ovalle', 'Krunoslav Lehman Pavasovic', 'Louis Martin', 'Luke Zettlemoyer', 'Eric Michael Smith', 'Adina Williams', 'Levent Sagun']
+affiliations_aligned: ['UCLA', 'AI at Meta', 'AI at Meta', 'AI at Meta', 'AI at Meta', 'AI at Meta', 'AI at Meta']
+affiliations: ['AI at Meta', 'UCLA']
+---
+
+
+Natural-language assistants are designed to provide users with helpful
+responses while avoiding harmful outputs, largely achieved through alignment to
+human preferences. Yet there is limited understanding of whether alignment
+techniques may inadvertently perpetuate or even amplify harmful biases
+inherited from their pre-aligned base models. This issue is compounded by the
+choice of bias evaluation benchmarks in popular preference-finetuned models,
+which predominantly focus on dominant social categories, such as binary gender,
+thereby limiting insights into biases affecting underrepresented groups.
+Towards addressing this gap, we center transgender, nonbinary, and other
+gender-diverse identities to investigate how alignment procedures interact with
+pre-existing gender-diverse bias in LLMs. Our key contributions include: 1) a
+comprehensive survey of bias evaluation modalities across leading
+preference-finetuned LLMs, highlighting critical gaps in gender-diverse
+representation, 2) systematic evaluation of gender-diverse biases across 12
+models spanning Direct Preference Optimization (DPO) stages, uncovering harms
+popular bias benchmarks fail to detect, and 3) a flexible framework for
+measuring harmful biases in implicit reward signals applicable to other social
+contexts. Our findings reveal that DPO-aligned models are particularly
+sensitive to supervised finetuning (SFT), and can amplify two forms of
+real-world gender-diverse harms from their base models: stigmatization and
+gender non-affirmative language. We conclude with recommendations tailored to
+DPO and broader alignment practices, advocating for the adoption of
+community-informed bias evaluation frameworks to more effectively identify and
+address underrepresented harms in LLMs.

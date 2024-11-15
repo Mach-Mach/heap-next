@@ -1,0 +1,34 @@
+---
+title: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical
+  Object Rearrangement
+date: 2024_11_06
+tags: ['change detection', 'object reconstruction', '3DGS model update', 'robot workspace reset', '3D scenes', 'physical object rearrangement', '3D Gaussian Splatting', 'zero-shot segmentation', 'real-world datasets', '3D changes', 'cluttered environments', '2D object-level changes']
+categories: ['cs.CV', 'cs.RO']
+problem: 3DGS-based method for detecting changes using unaligned images
+solution: ['detecting physical object rearrangements in 3D scenes']
+pdf_url: http://arxiv.org/pdf/2411.03706v1
+arx_url: http://arxiv.org/abs/2411.03706v1
+score: 6
+authors: ['Ziqi Lu', 'Jianbo Ye', 'John Leonard']
+affiliations_aligned: ['Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA', 'Amazon, New York, NY 10018, USA', 'Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA']
+affiliations: ['Amazon, New York, NY 10018, USA', 'Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA']
+---
+
+
+We present 3DGS-CD, the first 3D Gaussian Splatting (3DGS)-based method for
+detecting physical object rearrangements in 3D scenes. Our approach estimates
+3D object-level changes by comparing two sets of unaligned images taken at
+different times. Leveraging 3DGS's novel view rendering and EfficientSAM's
+zero-shot segmentation capabilities, we detect 2D object-level changes, which
+are then associated and fused across views to estimate 3D changes. Our method
+can detect changes in cluttered environments using sparse post-change images
+within as little as 18s, using as few as a single new image. It does not rely
+on depth input, user instructions, object classes, or object models -- An
+object is recognized simply if it has been re-arranged. Our approach is
+evaluated on both public and self-collected real-world datasets, achieving up
+to 14% higher accuracy and three orders of magnitude faster performance
+compared to the state-of-the-art radiance-field-based change detection method.
+This significant performance boost enables a broad range of downstream
+applications, where we highlight three key use cases: object reconstruction,
+robot workspace reset, and 3DGS model update. Our code and data will be made
+available at https://github.com/520xyxyzq/3DGS-CD.

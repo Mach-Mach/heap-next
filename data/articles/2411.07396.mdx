@@ -1,0 +1,17 @@
+---
+title: Toward Optimal Search and Retrieval for RAG
+date: 2024_11_13
+tags: ['retrieval-augmented generation', 'RAG performance', 'retrieval speed', 'downstream task performance', 'memory efficiency', 'reader', 'Question Answering', 'retriever', 'Large Language Models']
+categories: ['cs.CL']
+problem: insights for developing high-performance RAG pipelines
+solution: ['understanding the optimization of retrievers for RAG pipelines']
+pdf_url: https://arxiv.org/pdf/2411.07396
+arx_url: https://arxiv.org/abs/2411.07396
+score: 5
+authors: ['Alexandria Leto', 'Cecilia Aguerrebere', 'Ishwar Bhati', 'Ted Willke', 'Mariano Tepper', 'Vy Ai Vo']
+affiliations_aligned: ['Department of Computer Science, University of Colorado Boulder', 'Intel Labs', 'Intel Labs', 'Intel Labs', 'Intel Labs', 'Intel Labs']
+affiliations: ['Intel Labs', 'Department of Computer Science, University of Colorado Boulder']
+---
+
+
+Retrieval-augmented generation (RAG) is a promising method for addressing some of the memory-related challenges associated with Large Language Models (LLMs). Two separate systems form the RAG pipeline, the retriever and the reader, and the impact of each on downstream task performance is not well-understood. Here, we work towards the goal of understanding how retrievers can be optimized for RAG pipelines for common tasks such as Question Answering (QA). We conduct experiments focused on the relationship between retrieval and RAG performance on QA and attributed QA and unveil a number of insights useful to practitioners developing high-performance RAG pipelines. For example, lowering search accuracy has minor implications for RAG performance while potentially increasing retrieval speed and memory efficiency.

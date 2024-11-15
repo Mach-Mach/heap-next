@@ -1,0 +1,17 @@
+---
+title: One Small and One Large for Document-level Event Argument Extraction
+date: 2024_11_12
+tags: ['Document-level Event Argument Extraction', 'co-occurrences-aware module', 'Large Language Models', 'Supervised Fine-Tuning', 'performance improvement', 'datasets', 'structure-aware module', 'Small Language Models']
+categories: ['cs.CL']
+problem: Co and Structure Event Argument Extraction model
+solution: ['challenges in document-level event argument extraction']
+pdf_url: https://arxiv.org/pdf/2411.05895
+arx_url: https://arxiv.org/abs/2411.05895
+score: 4
+authors: ['Jiaren Peng', 'Hongda Sun', 'Wenzhong Yang', 'Fuyuan Wei', 'Liang He', 'Liejun Wang']
+affiliations_aligned: ['', '', '', '', '', '']
+affiliations: ['']
+---
+
+
+Document-level Event Argument Extraction (EAE) faces two challenges due to increased input length: 1) difficulty in distinguishing semantic boundaries between events, and 2) interference from redundant information. To address these issues, we propose two methods. The first method introduces the Co and Structure Event Argument Extraction model (CsEAE) based on Small Language Models (SLMs). CsEAE includes a co-occurrences-aware module, which integrates information about all events present in the current input through context labeling and co-occurrences event prompts extraction. Additionally, CsEAE includes a structure-aware module that reduces interference from redundant information by establishing structural relationships between the sentence containing the trigger and other sentences in the document. The second method introduces new prompts to transform the extraction task into a generative task suitable for Large Language Models (LLMs), addressing gaps in EAE performance using LLMs under Supervised Fine-Tuning (SFT) conditions. We also fine-tuned multiple datasets to develop an LLM that performs better across most datasets. Finally, we applied insights from CsEAE to LLMs, achieving further performance improvements. This suggests that reliable insights validated on SLMs are also applicable to LLMs. We tested our models on the Rams, WikiEvents, and MLEE datasets. The CsEAE model achieved improvements of 2.1\%, 2.3\%, and 3.2\% in the Arg-C F1 metric compared to the baseline, PAIE~\cite{PAIE}. For LLMs, we demonstrated that their performance on document-level datasets is comparable to that of SLMs~\footnote{All code is available at https://github.com/simon-p-j-r/CsEAE}.

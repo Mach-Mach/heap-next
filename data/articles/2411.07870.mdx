@@ -1,0 +1,17 @@
+---
+title: Trustful LLMs: Customizing and Grounding Text Generation with Knowledge Bases and Dual Decoders
+date: 2024_11_13
+tags: ['domain grounding', 'dual-decoder model', 'content generation', 'post-processing algorithm', 'large language models', 'Retrieval-Augmented Generation', 'hallucination detection']
+categories: ['cs.AI', 'cs.CL']
+problem: post-processing algorithm and dual-decoder model
+solution: ['incomplete and unverified generated responses']
+pdf_url: https://arxiv.org/pdf/2411.07870
+arx_url: https://arxiv.org/abs/2411.07870
+score: 5
+authors: ['Xiaofeng Zhu', 'Jaya Krishna Mandivarapu']
+affiliations_aligned: ['Microsoft Corporation / WA, USA', 'Microsoft Corporation / GA, USA']
+affiliations: ['Microsoft Corporation / GA, USA', 'Microsoft Corporation / WA, USA']
+---
+
+
+Although people are impressed by the content generation skills of large language models, the use of LLMs, such as ChatGPT, is limited by the domain grounding of the content. The correctness and groundedness of the generated content need to be based on a verified context, such as results from Retrieval-Augmented Generation (RAG). One important issue when adapting LLMs to a customized domain is that the generated responses are often incomplete, or the additions are not verified and may even be hallucinated. Prior studies on hallucination detection have focused on evaluation metrics, which are not easily adaptable to dynamic domains and can be vulnerable to attacks like jail-breaking. In this work, we propose 1) a post-processing algorithm that leverages knowledge triplets in RAG context to correct hallucinations and 2) a dual-decoder model that fuses RAG context to guide the generation process.

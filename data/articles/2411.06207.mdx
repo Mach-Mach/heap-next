@@ -1,0 +1,17 @@
+---
+title: Exploring Knowledge Boundaries in Large Language Models for Retrieval Judgment
+date: 2024_11_12
+tags: ['dynamic knowledge', 'multi-hop problems', 'Large Language Models', 'performance improvement', 'Retrieval-Augmented Generation', 'Knowledge Boundary Model', 'knowledge boundary', 'question answering capabilities', 'long-tail static knowledge', 'computational costs']
+categories: ['cs.CL']
+problem: Knowledge Boundary Model
+solution: ['challenges in dynamically changing knowledge and managing unknown static knowledge']
+pdf_url: https://arxiv.org/pdf/2411.06207
+arx_url: https://arxiv.org/abs/2411.06207
+score: 8
+authors: ['Zhen Zhang', 'Xinyu Wang', 'Yong Jiang', 'Zhuo Chen', 'Feiteng Mu', 'Mengting Hu', 'Pengjun Xie', 'Fei Huang']
+affiliations_aligned: ['Alibaba Group', 'Alibaba Group', 'Alibaba Group', 'Alibaba Group', 'Alibaba Group', 'Alibaba Group', 'Alibaba Group', 'Alibaba Group']
+affiliations: ['Alibaba Group']
+---
+
+
+Large Language Models (LLMs) are increasingly recognized for their practical applications. However, these models often encounter challenges in dynamically changing knowledge, as well as in managing unknown static knowledge. Retrieval-Augmented Generation (RAG) tackles this challenge and has shown a significant impact on LLMs. Actually, we find that the impact of RAG on the question answering capabilities of LLMs can be categorized into three groups: beneficial, neutral, and harmful. By minimizing retrieval requests that yield neutral or harmful results, we can effectively reduce both time and computational costs, while also improving the overall performance of LLMs. This insight motivates us to differentiate between types of questions using certain metrics as indicators, to decrease the retrieval ratio without compromising performance. In our work, we propose a method that is able to identify different types of questions from this view by training a Knowledge Boundary Model (KBM). Experiments conducted on 11 English and Chinese datasets illustrate that the KBM effectively delineates the knowledge boundary, significantly decreasing the proportion of retrievals required for optimal end-to-end performance. Specifically, we evaluate the effectiveness of KBM in three complex scenarios: dynamic knowledge, long-tail static knowledge, and multi-hop problems, as well as its functionality as an external LLM plug-in.

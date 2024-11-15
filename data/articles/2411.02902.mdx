@@ -1,0 +1,31 @@
+---
+title: Membership Inference Attacks against Large Vision-Language Models
+date: 2024_11_05
+tags: ['multi-modal tasks', 'membership inference attacks', 'training data detection', 'vision-language models', 'data security', "MaxR'enyi-K% metric", 'token-level image detection']
+categories: ['cs.CL', 'cs.CV', 'cs.AI', 'cs.CR', 'cs.LG']
+problem: membership inference attack benchmark and novel MIA pipeline
+solution: ['detecting inappropriately used data in VLLMs']
+pdf_url: http://arxiv.org/pdf/2411.02902v1
+arx_url: http://arxiv.org/abs/2411.02902v1
+score: 4
+authors: ['Zhan Li', 'Yongtao Wu', 'Yihang Chen', 'Francesco Tonin', 'Elias Abad Rocamora', 'Volkan Cevher']
+affiliations_aligned: ['LIONS, EPFL', 'LIONS, EPFL', 'LIONS, EPFL', 'LIONS, EPFL', 'LIONS, EPFL', 'LIONS, EPFL']
+affiliations: ['LIONS, EPFL']
+---
+
+
+Large vision-language models (VLLMs) exhibit promising capabilities for
+processing multi-modal tasks across various application scenarios. However,
+their emergence also raises significant data security concerns, given the
+potential inclusion of sensitive information, such as private photos and
+medical records, in their training datasets. Detecting inappropriately used
+data in VLLMs remains a critical and unresolved issue, mainly due to the lack
+of standardized datasets and suitable methodologies. In this study, we
+introduce the first membership inference attack (MIA) benchmark tailored for
+various VLLMs to facilitate training data detection. Then, we propose a novel
+MIA pipeline specifically designed for token-level image detection. Lastly, we
+present a new metric called MaxR\'enyi-K%, which is based on the confidence of
+the model output and applies to both text and image data. We believe that our
+work can deepen the understanding and methodology of MIAs in the context of
+VLLMs. Our code and datasets are available at
+https://github.com/LIONS-EPFL/VL-MIA.

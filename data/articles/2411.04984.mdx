@@ -1,0 +1,17 @@
+---
+title: Planar Reflection-Aware Neural Radiance Fields
+date: 2024_11_08
+tags: ['Neural Radiance Fields', 'scene reconstruction', 'view dependency', 'sparse edge regularization', 'high-frequency reflections', 'planar reflections']
+categories: ['cs.CV']
+problem: reflection-aware NeRF
+solution: ['handling complex planar reflections']
+pdf_url: https://arxiv.org/pdf/2411.04984
+arx_url: https://arxiv.org/abs/2411.04984
+score: 4
+authors: ['Chen Gao', 'Yipeng Wang', 'Changil Kim', 'Jia-Bin Huang', 'Johannes Kopf']
+affiliations_aligned: ['Meta, Seattle, Washington, USA', 'Meta, Seattle, Washington, USA', 'Meta, Seattle, Washington, USA', 'Meta, Seattle, Washington, USA', 'Meta, Seattle, Washington, USA']
+affiliations: ['Meta, Seattle, Washington, USA']
+---
+
+
+Neural Radiance Fields (NeRF) have demonstrated exceptional capabilities in reconstructing complex scenes with high fidelity. However, NeRF's view dependency can only handle low-frequency reflections. It falls short when handling complex planar reflections, often interpreting them as erroneous scene geometries and leading to duplicated and inaccurate scene representations. To address this challenge, we introduce a reflection-aware NeRF that jointly models planar reflectors, such as windows, and explicitly casts reflected rays to capture the source of the high-frequency reflections. We query a single radiance field to render the primary color and the source of the reflection. We propose a sparse edge regularization to help utilize the true sources of reflections for rendering planar reflections rather than creating a duplicate along the primary ray at the same depth. As a result, we obtain accurate scene geometry. Rendering along the primary ray results in a clean, reflection-free view, while explicitly rendering along the reflected ray allows us to reconstruct highly detailed reflections. Our extensive quantitative and qualitative evaluations of real-world datasets demonstrate our method's enhanced performance in accurately handling reflections.

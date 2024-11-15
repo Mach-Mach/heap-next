@@ -1,0 +1,17 @@
+---
+title: A Multi-Agent Approach for REST API Testing with Semantic Graphs and LLM-Driven Inputs
+date: 2024_11_12
+tags: ['code coverage', 'Large Language Models', 'REST APIs', 'fault detection', 'Multi-Agent Reinforcement Learning', 'API testing', 'operation coverage', 'Semantic Property Dependency Graph', 'OpenAPI Specification', 'black-box testing tools']
+categories: ['cs.AI', 'cs.SE']
+problem: AutoRestTest framework with multi-agent approach
+solution: ['limitations of existing black-box REST API testing tools']
+pdf_url: https://arxiv.org/pdf/2411.07098
+arx_url: https://arxiv.org/abs/2411.07098
+score: 4
+authors: ['Myeongsoo Kim', 'Tyler Stennett', 'Saurabh Sinha', 'Alessandro Orso']
+affiliations_aligned: ['', '', '', '']
+affiliations: ['']
+---
+
+
+As modern web services increasingly rely on REST APIs, their thorough testing has become crucial. Furthermore, the advent of REST API specifications such as the OpenAPI Specification has led to the emergence of many black-box REST API testing tools. However, these tools often focus on individual test elements in isolation (e.g., APIs, parameters, values), resulting in lower coverage and less effectiveness in detecting faults (i.e., 500 response codes). To address these limitations, we present AutoRestTest, the first black-box framework to adopt a dependency-embedded multi-agent approach for REST API testing, integrating Multi-Agent Reinforcement Learning (MARL) with a Semantic Property Dependency Graph (SPDG) and Large Language Models (LLMs). Our approach treats REST API testing as a separable problem, where four agents -- API, dependency, parameter, and value -- collaborate to optimize API exploration. LLMs handle domain-specific value restrictions, the SPDG model simplifies the search space for dependencies using a similarity score between API operations, and MARL dynamically optimizes the agents' behavior. Evaluated on 12 real-world REST services, AutoRestTest outperforms the four leading black-box REST API testing tools, including those assisted by RESTGPT (which augments realistic test inputs using LLMs), in terms of code coverage, operation coverage, and fault detection. Notably, AutoRestTest is the only tool able to identify an internal server error in Spotify. Our ablation study underscores the significant contributions of the agent learning, SPDG, and LLM components.

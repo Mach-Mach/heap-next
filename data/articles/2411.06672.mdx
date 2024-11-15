@@ -1,0 +1,17 @@
+---
+title: What Should Baby Models Read? Exploring Sample-Efficient Data Composition on Model Performance
+date: 2024_11_12
+tags: ['dataset sources', 'small language models', 'dataset composition', 'pre-training data composition', 'model performance', 'sample-efficient setting', 'model capacity']
+categories: ['cs.AI', 'cs.CL']
+problem: optimal dataset for sample efficient training
+solution: ['impact of pre-training data composition on model performance']
+pdf_url: https://arxiv.org/pdf/2411.06672
+arx_url: https://arxiv.org/abs/2411.06672
+score: 4
+authors: ['Hong Meng Yam', 'Nathan J Paek', 'Nathan Paek']
+affiliations_aligned: ['Stanford University', '', 'Stanford University']
+affiliations: ['', 'Stanford University']
+---
+
+
+We explore the impact of pre-training data composition on the performance of small language models in a sample-efficient setting. Using datasets limited to 10 million words, we evaluate several dataset sources, including child-directed speech (CHILDES), classic books (Gutenberg), synthetic data (TinyStories), and a mix of these (Mix) across different model sizes ranging from 18 million to 705 million parameters. Our experiments show that smaller models (e.g., GPT2-97M, GPT2-705M, Llama-360M) perform better when trained on more complex and rich datasets like Gutenberg. Models trained on the CHILDES and TinyStories datasets underperformed across all model sizes. These findings suggest that the optimal dataset for sample efficient training depends on the model size, and that neither child-directed speech nor simplified stories are optimal for language models of all sizes. We highlight the importance of considering both dataset composition and model capacity for effective sample efficient language model training.

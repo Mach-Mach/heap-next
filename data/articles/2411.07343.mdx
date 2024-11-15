@@ -1,0 +1,17 @@
+---
+title: Multi-head Span-based Detector for AI-generated Fragments in Scientific Papers
+date: 2024_11_13
+tags: ['scientific document processing', 'DAGPap24 competition', 'transform-based encoder', 'token-level text fragments', 'AI-generated text detection', 'human-written text identification', 'multi-task learning architecture']
+categories: ['cs.CL']
+problem: multi-head span-based detector
+solution: ['distinguishing between AI-generated and human-written scientific excerpts']
+pdf_url: https://arxiv.org/pdf/2411.07343
+arx_url: https://arxiv.org/abs/2411.07343
+score: 5
+authors: ['German Gritsai', 'Ildar Khabutdinov', 'Andrey Grabovoy']
+affiliations_aligned: ['Advacheck OÜ, Estonia', 'Advacheck OÜ, Estonia', 'Advacheck OÜ, Estonia']
+affiliations: ['Advacheck OÜ, Estonia']
+---
+
+
+This paper describes a system designed to distinguish between AI-generated and human-written scientific excerpts in the DAGPap24 competition hosted within the Fourth Workshop on Scientific Document Processing. In this competition the task is to find artificially generated token-level text fragments in documents of a scientific domain. Our work focuses on the use of a multi-task learning architecture with two heads. The application of this approach is justified by the specificity of the task, where class spans are continuous over several hundred characters. We considered different encoder variations to obtain a state vector for each token in the sequence, as well as a variation in splitting fragments into tokens to further feed into the input of a transform-based encoder. This approach allows us to achieve a 9% quality improvement relative to the baseline solution score on the development set (from 0.86 to 0.95) using the average macro F1-score, as well as a score of 0.96 on a closed test part of the dataset from the competition.

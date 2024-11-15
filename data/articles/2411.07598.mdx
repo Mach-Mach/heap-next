@@ -1,0 +1,17 @@
+---
+title: Problem-Oriented Segmentation and Retrieval: Case Study on Tutoring Conversations
+date: 2024_11_13
+tags: ['Problem-Oriented Segmentation', 'Large Language Models', 'Retrieval Approaches', 'Tutoring Conversations', 'Conversation Structure', 'Education Applications', 'Retrieval', 'LessonLink Dataset', 'Segmentation Approaches']
+categories: ['cs.AI', 'cs.CL']
+problem: Problem-Oriented Segmentation & Retrieval (POSR)
+solution: ['structuring lessons around problems']
+pdf_url: https://arxiv.org/pdf/2411.07598
+arx_url: https://arxiv.org/abs/2411.07598
+score: 4
+authors: ['Rose E. Wang', 'Pawan Wirawarn', 'Kenny Lam', 'Omar Khattab', 'Dorottya Demszky']
+affiliations_aligned: ['Stanford University', 'Stanford University', 'Stanford University', 'Stanford University', 'Stanford University']
+affiliations: ['Stanford University']
+---
+
+
+Many open-ended conversations (e.g., tutoring lessons or business meetings) revolve around pre-defined reference materials, like worksheets or meeting bullets. To provide a framework for studying such conversation structure, we introduce Problem-Oriented Segmentation & Retrieval (POSR), the task of jointly breaking down conversations into segments and linking each segment to the relevant reference item. As a case study, we apply POSR to education where effectively structuring lessons around problems is critical yet difficult. We present LessonLink, the first dataset of real-world tutoring lessons, featuring 3,500 segments, spanning 24,300 minutes of instruction and linked to 116 SAT math problems. We define and evaluate several joint and independent approaches for POSR, including segmentation (e.g., TextTiling), retrieval (e.g., ColBERT), and large language models (LLMs) methods. Our results highlight that modeling POSR as one joint task is essential: POSR methods outperform independent segmentation and retrieval pipelines by up to +76% on joint metrics and surpass traditional segmentation methods by up to +78% on segmentation metrics. We demonstrate POSR's practical impact on downstream education applications, deriving new insights on the language and time use in real-world lesson structures.

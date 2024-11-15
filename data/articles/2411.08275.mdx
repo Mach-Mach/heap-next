@@ -1,0 +1,17 @@
+---
+title: A Large-Scale Study of Relevance Assessments with Large Language Models: An Initial Look
+date: 2024_11_14
+tags: ['evaluation', 'natural language processing', 'relevance assessments', 'cost and quality tradeoffs', 'large language models', 'information retrieval', 'Recall', 'automatically generated judgments', 'TREC-style evaluations', 'human-in-the-loop processes', 'nDCG']
+categories: ['cs.CL', 'cs.IR']
+problem: automatically generated relevance assessments using UMBRELA
+solution: ['unknowns in relevance assessments with large language models']
+pdf_url: https://arxiv.org/pdf/2411.08275
+arx_url: https://arxiv.org/abs/2411.08275
+score: 5
+authors: ['Shivani Upadhyay', 'Ronak Pradeep', 'Nandan Thakur', 'Daniel Campos', 'Nick Craswell', 'Ian Soboroff', 'Hoa Trang Dang', 'Jimmy Lin']
+affiliations_aligned: ['University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada', 'University of Waterloo, Ontario, Canada']
+affiliations: ['University of Waterloo, Ontario, Canada']
+---
+
+
+The application of large language models to provide relevance assessments presents exciting opportunities to advance information retrieval, natural language processing, and beyond, but to date many unknowns remain. This paper reports on the results of a large-scale evaluation (the TREC 2024 RAG Track) where four different relevance assessment approaches were deployed in situ: the "standard" fully manual process that NIST has implemented for decades and three different alternatives that take advantage of LLMs to different extents using the open-source UMBRELA tool. This setup allows us to correlate system rankings induced by the different approaches to characterize tradeoffs between cost and quality. We find that in terms of nDCG@20, nDCG@100, and Recall@100, system rankings induced by automatically generated relevance assessments from UMBRELA correlate highly with those induced by fully manual assessments across a diverse set of 77 runs from 19 teams. Our results suggest that automatically generated UMBRELA judgments can replace fully manual judgments to accurately capture run-level effectiveness. Surprisingly, we find that LLM assistance does not appear to increase correlation with fully manual assessments, suggesting that costs associated with human-in-the-loop processes do not bring obvious tangible benefits. Overall, human assessors appear to be stricter than UMBRELA in applying relevance criteria. Our work validates the use of LLMs in academic TREC-style evaluations and provides the foundation for future studies.

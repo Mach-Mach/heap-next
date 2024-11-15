@@ -1,0 +1,31 @@
+---
+title: ReEdit: Multimodal Exemplar-Based Image Editing with Diffusion Models
+date: 2024_11_06
+tags: ['modular framework', 'state-of-the-art comparisons', 'practical applicability', 'sensitivity analyses', 'image editing', 'exemplar-based image editing', 'Text-to-Image Diffusion models', 'image fidelity']
+categories: ['cs.CV']
+problem: ReEdit framework for exemplar-based image editing
+solution: ['complex many-to-many mapping between natural language and images']
+pdf_url: http://arxiv.org/pdf/2411.03982v1
+arx_url: http://arxiv.org/abs/2411.03982v1
+score: 5
+authors: ['Ashutosh Srivastava', 'Tarun Ram Menta', 'Abhinav Java', 'Avadhoot Jadhav', 'Silky Singh', 'Surgan Jandial', 'Balaji Krishnamurthy']
+affiliations_aligned: ['Indian Institute of Technology, Roorkee', 'Adobe MDSR', 'Microsoft Research', 'Indian Institute of Technology, Bombay', 'Stanford University', 'Carnegie Mellon University', 'Adobe MDSR']
+affiliations: ['Microsoft Research', 'Adobe MDSR', 'Indian Institute of Technology, Bombay', 'Indian Institute of Technology, Roorkee', 'Stanford University', 'Carnegie Mellon University']
+---
+
+
+Modern Text-to-Image (T2I) Diffusion models have revolutionized image editing
+by enabling the generation of high-quality photorealistic images. While the de
+facto method for performing edits with T2I models is through text instructions,
+this approach non-trivial due to the complex many-to-many mapping between
+natural language and images. In this work, we address exemplar-based image
+editing -- the task of transferring an edit from an exemplar pair to a content
+image(s). We propose ReEdit, a modular and efficient end-to-end framework that
+captures edits in both text and image modalities while ensuring the fidelity of
+the edited image. We validate the effectiveness of ReEdit through extensive
+comparisons with state-of-the-art baselines and sensitivity analyses of key
+design choices. Our results demonstrate that ReEdit consistently outperforms
+contemporary approaches both qualitatively and quantitatively. Additionally,
+ReEdit boasts high practical applicability, as it does not require any
+task-specific optimization and is four times faster than the next best
+baseline.

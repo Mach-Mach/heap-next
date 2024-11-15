@@ -1,0 +1,42 @@
+---
+title: Enhancing Retrieval Performance: An Ensemble Approach For Hard Negative
+  Mining
+date: 2024_10_18
+tags: ['Retrieval-Augmented Generation', 'Reasoning and Action Agents', 'cross-encoder models', 'retrieval performance', 'enterprise dataset', 'negative pairs', 'ranking models', 'hard negative mining', 'information retrieval']
+categories: ['cs.CL', 'cs.IR', 'cs.AI', 'cs.LG']
+problem: robust hard negative mining technique for efficient training of cross-encoder re-rank models
+solution: ['identifying suitable negative pairs from a vast pool of documents']
+pdf_url: http://arxiv.org/pdf/2411.02404v1
+arx_url: http://arxiv.org/abs/2411.02404v1
+score: 6
+authors: ['Hansa Meghwani']
+affiliations_aligned: ['']
+affiliations: ['']
+---
+
+
+Ranking consistently emerges as a primary focus in information retrieval
+research. Retrieval and ranking models serve as the foundation for numerous
+applications, including web search, open domain QA, enterprise domain QA, and
+text-based recommender systems. Typically, these models undergo training on
+triplets consisting of binary relevance assignments, comprising one positive
+and one negative passage. However, their utilization involves a context where a
+significantly more nuanced understanding of relevance is necessary, especially
+when re-ranking a large pool of potentially relevant passages. Although
+collecting positive examples through user feedback like impressions or clicks
+is straightforward, identifying suitable negative pairs from a vast pool of
+possibly millions or even billions of documents possess a greater challenge.
+Generating a substantial number of negative pairs is often necessary to
+maintain the high quality of the model. Several approaches have been suggested
+in literature to tackle the issue of selecting suitable negative pairs from an
+extensive corpus. This study focuses on explaining the crucial role of hard
+negatives in the training process of cross-encoder models, specifically aiming
+to explain the performance gains observed with hard negative sampling compared
+to random sampling. We have developed a robust hard negative mining technique
+for efficient training of cross-encoder re-rank models on an enterprise dataset
+which has domain specific context. We provide a novel perspective to enhance
+retrieval models, ultimately influencing the performance of advanced LLM
+systems like Retrieval-Augmented Generation (RAG) and Reasoning and Action
+Agents (ReAct). The proposed approach demonstrates that learning both
+similarity and dissimilarity simultaneously with cross-encoders improves
+performance of retrieval systems.

@@ -1,0 +1,31 @@
+---
+title: Multi-model Ensemble Conformal Prediction in Dynamic Environments
+date: 2024_11_06
+tags: ['prediction sets', 'valid coverage', 'adaptive conformal prediction', 'uncertainty quantification', 'real and synthetic datasets', 'multiple candidate models', 'dynamic environments', 'conformal prediction', 'adaptive regret', 'data distribution shifts']
+categories: ['cs.LG']
+problem: novel adaptive conformal prediction framework using multiple candidate models
+solution: ['inefficiency of prediction sets in dynamic environments with unknown data distribution shifts']
+pdf_url: http://arxiv.org/pdf/2411.03678v1
+arx_url: http://arxiv.org/abs/2411.03678v1
+score: 4
+authors: ['Erfan Hajihashemi', 'Yanning Shen']
+affiliations_aligned: ['Department of Electrical Engineering & Computer Science, University of California, Irvine', 'Department of Electrical Engineering & Computer Science, University of California, Irvine']
+affiliations: ['Department of Electrical Engineering & Computer Science, University of California, Irvine']
+---
+
+
+Conformal prediction is an uncertainty quantification method that constructs
+a prediction set for a previously unseen datum, ensuring the true label is
+included with a predetermined coverage probability. Adaptive conformal
+prediction has been developed to address data distribution shifts in dynamic
+environments. However, the efficiency of prediction sets varies depending on
+the learning model used. Employing a single fixed model may not consistently
+offer the best performance in dynamic environments with unknown data
+distribution shifts. To address this issue, we introduce a novel adaptive
+conformal prediction framework, where the model used for creating prediction
+sets is selected on the fly from multiple candidate models. The proposed
+algorithm is proven to achieve strongly adaptive regret over all intervals
+while maintaining valid coverage. Experiments on real and synthetic datasets
+corroborate that the proposed approach consistently yields more efficient
+prediction sets while maintaining valid coverage, outperforming alternative
+methods.

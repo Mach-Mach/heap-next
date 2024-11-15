@@ -1,0 +1,17 @@
+---
+title: Birdie: Advancing State Space Models with Reward-Driven Objectives and Curricula
+date: 2024_11_08
+tags: ['causal generation', 'retrieval-intensive tasks', 'linear attention variants', 'question answering', 'text copying', 'specialized pre-training objectives', 'bidirectional input processing', 'linear recurrent neural networks', 'architectural modifications', 'computational efficiency', 'training procedure', 'bidirectional SSM architecture', 'Transformers', 'in-context retrieval', 'associative recall', 'reinforcement learning', 'long paragraph question-answering', 'infilling', 'multi-number phone book lookup', 'state space models']
+categories: ['cs.AI', 'cs.CL', 'cs.LG']
+problem: novel training procedure Birdie for enhancing in-context retrieval capabilities
+solution: ['long-range in-context retrieval challenges in state space models']
+pdf_url: https://arxiv.org/pdf/2411.01030
+arx_url: https://arxiv.org/abs/2411.01030
+score: 7
+authors: ['Sam Blouir', 'Jimmy T. H. Smith', 'Antonios Anastasopoulos', 'Amarda Shehu', 'Jimmy T.H. Smith']
+affiliations_aligned: ['Department of Computer Science, George Mason University, Fairfax, VA', '', 'Department of Computer Science, George Mason University, Fairfax, VA; Archimedes AI, Athena RC, Athens, Greece', 'Department of Computer Science, George Mason University, Fairfax, VA', 'Stanford University, Stanford, CA']
+affiliations: ['', 'Department of Computer Science, George Mason University, Fairfax, VA; Archimedes AI, Athena RC, Athens, Greece', 'Stanford University, Stanford, CA', 'Department of Computer Science, George Mason University, Fairfax, VA']
+---
+
+
+Efficient state space models (SSMs), such as linear recurrent neural networks and linear attention variants, offer computational advantages over Transformers but struggle with tasks requiring long-range in-context retrieval-like text copying, associative recall, and question answering over long contexts. Previous efforts to address these challenges have focused on architectural modifications, often reintroducing computational inefficiencies. In this paper, we propose a novel training procedure, Birdie, that significantly enhances the in-context retrieval capabilities of SSMs without altering their architecture. Our approach combines bidirectional input processing with dynamic mixtures of specialized pre-training objectives, optimized via reinforcement learning. We introduce a new bidirectional SSM architecture that seamlessly transitions from bidirectional context processing to causal generation. Experimental evaluations demonstrate that Birdie markedly improves performance on retrieval-intensive tasks such as multi-number phone book lookup, long paragraph question-answering, and infilling. This narrows the performance gap with Transformers, while retaining computational efficiency. Our findings highlight the importance of training procedures in leveraging the fixed-state capacity of SSMs, offering a new direction to advance their capabilities. All code and pre-trained models are available at https://www.github.com/samblouir/birdie, with support for JAX and PyTorch.

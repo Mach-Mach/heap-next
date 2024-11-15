@@ -1,0 +1,17 @@
+---
+title: Multi-Document Financial Question Answering using LLMs
+date: 2024_11_13
+tags: ['knowledge graph', 'semantic tagging', 'knowledge distillation', 'LLM based scoring', 'multi-document financial question answering', 'RAG methods', 'evaluation metrics']
+categories: ['cs.IR', 'cs.CL']
+problem: methods using semantic tagging and knowledge graphs
+solution: ['multi-document financial question answering']
+pdf_url: https://arxiv.org/pdf/2411.07264
+arx_url: https://arxiv.org/abs/2411.07264
+score: 6
+authors: ['Shalin Shah', 'Srikanth Ryali', 'Ramasubbu Venkatesh']
+affiliations_aligned: ['Anvai AI', '', '']
+affiliations: ['', 'Anvai AI']
+---
+
+
+We propose two new methods for multi-document financial question answering. First, a method that uses semantic tagging, and then, queries the index to get the context (RAG_SEM). And second, a Knowledge Graph (KG_RAG) based method that uses semantic tagging, and, retrieves knowledge graph triples from a graph database, as context. KG_RAG uses knowledge graphs constructed using a small model that is fine-tuned using knowledge distillation using a large teacher model. The data consists of 18 10K reports of Apple, Microsoft, Alphabet, NVIDIA, Amazon and Tesla for the years 2021, 2022 and 2023. The list of questions in the data consists of 111 complex questions including many esoteric questions that are difficult to answer and the answers are not completely obvious. As evaluation metrics, we use overall scores as well as segmented scores for measurement including the faithfulness, relevance, correctness, similarity, an LLM based overall score and the rouge scores as well as a similarity of embeddings. We find that both methods outperform plain RAG significantly. KG_RAG outperforms RAG_SEM in four out of nine metrics.

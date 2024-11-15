@@ -1,0 +1,39 @@
+---
+title: A Visual Question Answering Method for SAR Ship: Breaking the
+  Requirement for Multimodal Dataset Construction and Model Fine-Tuning
+date: 2024_11_03
+tags: ['multimodal datasets', 'visual question answering', 'object detection networks', 'YOLO networks', 'Qwen2-VL', 'Synthetic Aperture Radar', 'multi-turn dialogues', 'ship information analysis', 'semantic understanding', 'visual language models', 'SAR ship detection', 'scene descriptions']
+categories: ['cs.CV']
+problem: novel VQA approach integrating object detection networks with visual language models
+solution: ['requirement for constructing multimodal datasets and fine-tuning visual language models']
+pdf_url: http://arxiv.org/pdf/2411.01445v1
+arx_url: http://arxiv.org/abs/2411.01445v1
+score: 5
+authors: ['Fei Wang', 'Chengcheng Chen', 'Hongyu Chen', 'Yugang Chang', 'Weiming Zeng']
+affiliations_aligned: ['Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China', 'Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China', 'Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China', 'Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China', 'Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China']
+affiliations: ['Digital Imaging and Intelligent Computing Laboratory, Shanghai Maritime University, Shanghai 201306, China']
+---
+
+
+Current visual question answering (VQA) tasks often require constructing
+multimodal datasets and fine-tuning visual language models, which demands
+significant time and resources. This has greatly hindered the application of
+VQA to downstream tasks, such as ship information analysis based on Synthetic
+Aperture Radar (SAR) imagery. To address this challenge, this letter proposes a
+novel VQA approach that integrates object detection networks with visual
+language models, specifically designed for analyzing ships in SAR images. This
+integration aims to enhance the capabilities of VQA systems, focusing on
+aspects such as ship location, density, and size analysis, as well as risk
+behavior detection. Initially, we conducted baseline experiments using YOLO
+networks on two representative SAR ship detection datasets, SSDD and HRSID, to
+assess each model's performance in terms of detection accuracy. Based on these
+results, we selected the optimal model, YOLOv8n, as the most suitable detection
+network for this task. Subsequently, leveraging the vision-language model
+Qwen2-VL, we designed and implemented a VQA task specifically for SAR scenes.
+This task employs the ship location and size information output by the
+detection network to generate multi-turn dialogues and scene descriptions for
+SAR imagery. Experimental results indicate that this method not only enables
+fundamental SAR scene question-answering without the need for additional
+datasets or fine-tuning but also dynamically adapts to complex, multi-turn
+dialogue requirements, demonstrating robust semantic understanding and
+adaptability.

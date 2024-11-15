@@ -1,0 +1,17 @@
+---
+title: Multi-Modal Forecaster: Jointly Predicting Time Series and Textual Data
+date: 2024_11_12
+tags: ['TimeText Corpus', 'climate science', 'Hybrid Multi-Modal Forecaster', 'textual data', 'time series data', 'multimodal forecasting', 'shared embeddings', 'healthcare']
+categories: ['cs.AI']
+problem: Hybrid Multi-Modal Forecaster
+solution: ['lack of well-curated multimodal benchmark dataset']
+pdf_url: https://arxiv.org/pdf/2411.06735
+arx_url: https://arxiv.org/abs/2411.06735
+score: 4
+authors: ['Kai Kim', 'Howard Tsai', 'Rajat Sen', 'Abhimanyu Das', 'Zihao Zhou', 'Abhishek Tanpure', 'Mathew Luo', 'Rose Yu']
+affiliations_aligned: ['Department of Computer Science, University of California, San Diego', 'Department of Computer Science, University of California, San Diego', 'Google Research', 'Google Research', 'Department of Computer Science, University of California, San Diego', 'Department of Computer Science, University of California, San Diego', 'Department of Computer Science, University of California, San Diego', 'Department of Computer Science, University of California, San Diego']
+affiliations: ['Google Research', 'Department of Computer Science, University of California, San Diego']
+---
+
+
+Current forecasting approaches are largely unimodal and ignore the rich textual data that often accompany the time series due to lack of well-curated multimodal benchmark dataset. In this work, we develop TimeText Corpus (TTC), a carefully curated, time-aligned text and time dataset for multimodal forecasting. Our dataset is composed of sequences of numbers and text aligned to timestamps, and includes data from two different domains: climate science and healthcare. Our data is a significant contribution to the rare selection of available multimodal datasets. We also propose the Hybrid Multi-Modal Forecaster (Hybrid-MMF), a multimodal LLM that jointly forecasts both text and time series data using shared embeddings. However, contrary to our expectations, our Hybrid-MMF model does not outperform existing baselines in our experiments. This negative result highlights the challenges inherent in multimodal forecasting. Our code and data are available at https://github.com/Rose-STL-Lab/Multimodal_ Forecasting.

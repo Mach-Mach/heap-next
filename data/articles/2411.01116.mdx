@@ -1,0 +1,30 @@
+---
+title: Test-Time Adaptation in Point Clouds: Leveraging Sampling Variation with
+  Weight Averaging
+date: 2024_11_02
+tags: ['sampling variation', 'distribution shifts', 'TENT algorithm', 'Test-Time Adaptation', 'Farthest Point Sampling', '3D point cloud classification', 'weight averaging', 'model stability', 'K-Nearest Neighbors', 'model generalization']
+categories: ['cs.CV']
+problem: novel TTA approach combining sampling variation with weight averaging
+solution: ['distribution shifts during testing']
+pdf_url: http://arxiv.org/pdf/2411.01116v1
+arx_url: http://arxiv.org/abs/2411.01116v1
+score: 4
+authors: ['Ali Bahri', 'Moslem Yazdanpanah', 'Mehrdad Noori', 'Sahar Dastani Oghani', 'Milad Cheraghalikhani', 'David Osowiech', 'Farzad Beizaee', 'Gustavo adolfo. vargas-hakim', 'Ismail Ben Ayed', 'Christian Desrosiers', 'Gustavo adolfo.vargas-hakim']
+affiliations_aligned: ['LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', '', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada', 'LIVIA, ÉTS Montréal, Canada']
+affiliations: ['', 'LIVIA, ÉTS Montréal, Canada']
+---
+
+
+Test-Time Adaptation (TTA) addresses distribution shifts during testing by
+adapting a pretrained model without access to source data. In this work, we
+propose a novel TTA approach for 3D point cloud classification, combining
+sampling variation with weight averaging. Our method leverages Farthest Point
+Sampling (FPS) and K-Nearest Neighbors (KNN) to create multiple point cloud
+representations, adapting the model for each variation using the TENT
+algorithm. The final model parameters are obtained by averaging the adapted
+weights, leading to improved robustness against distribution shifts. Extensive
+experiments on ModelNet40-C, ShapeNet-C, and ScanObjectNN-C datasets, with
+different backbones (Point-MAE, PointNet, DGCNN), demonstrate that our approach
+consistently outperforms existing methods while maintaining minimal resource
+overhead. The proposed method effectively enhances model generalization and
+stability in challenging real-world conditions.

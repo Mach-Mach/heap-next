@@ -1,0 +1,32 @@
+---
+title: TripletCLIP: Improving Compositional Reasoning of CLIP via Synthetic
+  Vision-Language Negatives
+date: 2024_11_04
+tags: ['contrastive pre-training strategy', 'compositional reasoning', 'Contrastive Language-Image Pretraining', 'image-text datasets', 'in-context learning', 'zero-shot image classification', 'image retrieval', 'CLIP models', 'text-to-image generators']
+categories: ['cs.CL', 'cs.CV']
+problem: novel contrastive pre-training strategy leveraging hard negative captions and images
+solution: ['lack of compositional diversity in contemporary image-text datasets']
+pdf_url: http://arxiv.org/pdf/2411.02545v1
+arx_url: http://arxiv.org/abs/2411.02545v1
+score: 5
+authors: ['Maitreya Patel', 'Abhiram Kusumba', 'Sheng Cheng', 'Changhoon Kim', 'Tejas Gokhale', 'Chitta Baral', 'Yezhou Yang']
+affiliations_aligned: ['Arizona State University', 'Arizona State University', 'Arizona State University', 'Arizona State University', 'University of Maryland, Baltimore County', 'Arizona State University', 'Arizona State University']
+affiliations: ['Arizona State University', 'University of Maryland, Baltimore County']
+---
+
+
+Contrastive Language-Image Pretraining (CLIP) models maximize the mutual
+information between text and visual modalities to learn representations. This
+makes the nature of the training data a significant factor in the efficacy of
+CLIP for downstream tasks. However, the lack of compositional diversity in
+contemporary image-text datasets limits the compositional reasoning ability of
+CLIP. We show that generating ``hard'' negative captions via in-context
+learning and synthesizing corresponding negative images with text-to-image
+generators offers a solution. We introduce a novel contrastive pre-training
+strategy that leverages these hard negative captions and images in an
+alternating fashion to train CLIP. We demonstrate that our method, named
+TripletCLIP, when applied to existing datasets such as CC3M and CC12M, enhances
+the compositional capabilities of CLIP, resulting in an absolute improvement of
+over 9% on the SugarCrepe benchmark on an equal computational budget, as well
+as improvements in zero-shot image classification and image retrieval. Our
+code, models, and data are available at: https://tripletclip.github.io

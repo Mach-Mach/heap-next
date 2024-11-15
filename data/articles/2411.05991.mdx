@@ -1,0 +1,17 @@
+---
+title: GUIDEQ: Framework for Guided Questioning for progressive informational collection and classification
+date: 2024_11_12
+tags: ['classification accuracy', 'Question Answering', 'customer support', 'explainability', 'guided questions', 'classifier model', 'information gathering', 'text classification', 'legal services', 'F1-Score', 'prompting strategy', 'healthcare', 'LLMs']
+categories: ['cs.CL']
+problem: GUIDEQ framework for guided questioning
+solution: ['insufficient or missing information for classification']
+pdf_url: https://arxiv.org/pdf/2411.05991
+arx_url: https://arxiv.org/abs/2411.05991
+score: 6
+authors: ['Priya Mishra', 'Suraj Racha', 'Kaustubh Ponkshe', 'Adit Akarsh', 'Ganesh Ramakrishnan']
+affiliations_aligned: ['Indian Institute of Technology Bombay', 'Indian Institute of Technology Bombay', 'Indian Institute of Technology Bombay', 'Indian Institute of Technology Bombay', 'Indian Institute of Technology Bombay']
+affiliations: ['Indian Institute of Technology Bombay']
+---
+
+
+Question Answering (QA) is an important part of tasks like text classification through information gathering. These are finding increasing use in sectors like healthcare, customer support, legal services, etc., to collect and classify responses into actionable categories. LLMs, although can support QA systems, they face a significant challenge of insufficient or missing information for classification. Although LLMs excel in reasoning, the models rely on their parametric knowledge to answer. However, questioning the user requires domain-specific information aiding to collect accurate information. Our work, GUIDEQ, presents a novel framework for asking guided questions to further progress a partial information. We leverage the explainability derived from the classifier model for along with LLMs for asking guided questions to further enhance the information. This further information helps in more accurate classification of a text. GUIDEQ derives the most significant key-words representative of a label using occlusions. We develop GUIDEQ's prompting strategy for guided questions based on the top-3 classifier label outputs and the significant words, to seek specific and relevant information, and classify in a targeted manner. Through our experimental results, we demonstrate that GUIDEQ outperforms other LLM-based baselines, yielding improved F1-Score through the accurate collection of relevant further information. We perform various analytical studies and also report better question quality compared to our method.

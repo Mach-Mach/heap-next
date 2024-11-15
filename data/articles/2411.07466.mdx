@@ -1,0 +1,17 @@
+---
+title: IdentifyMe: A Challenging Long-Context Mention Resolution Benchmark
+date: 2024_11_13
+tags: ['coreference resolution', 'LLMs', 'model performance', 'pronominal mentions', 'nominal mentions', 'multiple-choice question format', 'nested structures', 'long narratives', 'mention resolution', 'evaluation metrics']
+categories: ['cs.LG', 'cs.AI', 'cs.CL']
+problem: IdentifyMe benchmark for mention resolution
+solution: ['limitations of traditional output formats and evaluation metrics in capturing referential understanding']
+pdf_url: https://arxiv.org/pdf/2411.07466
+arx_url: https://arxiv.org/abs/2411.07466
+score: 6
+authors: ['Kawshik Manikantan', 'Makarand Tapaswi', 'Vineet Gandhi', 'Shubham Toshniwal']
+affiliations_aligned: ['CVIT, IIIT Hyderabad', 'CVIT, IIIT Hyderabad', 'CVIT, IIIT Hyderabad', 'NVIDIA']
+affiliations: ['CVIT, IIIT Hyderabad', 'NVIDIA']
+---
+
+
+Recent evaluations of LLMs on coreference resolution have revealed that traditional output formats and evaluation metrics do not fully capture the models' referential understanding. To address this, we introduce IdentifyMe, a new benchmark for mention resolution presented in a multiple-choice question (MCQ) format, commonly used for evaluating LLMs. IdentifyMe features long narratives and employs heuristics to exclude easily identifiable mentions, creating a more challenging task. The benchmark also consists of a curated mixture of different mention types and corresponding entities, allowing for a fine-grained analysis of model performance. We evaluate both closed- and open source LLMs on IdentifyMe and observe a significant performance gap (20-30%) between the state-of-the-art sub-10B open models vs. closed ones. We observe that pronominal mentions, which have limited surface information, are typically much harder for models to resolve than nominal mentions. Additionally, we find that LLMs often confuse entities when their mentions overlap in nested structures. The highest-scoring model, GPT-4o, achieves 81.9% accuracy, highlighting the strong referential capabilities of state-of-the-art LLMs while also indicating room for further improvement.

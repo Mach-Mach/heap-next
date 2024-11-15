@@ -1,0 +1,38 @@
+---
+title: SALSA: Soup-based Alignment Learning for Stronger Adaptation in RLHF
+date: 2024_11_04
+tags: ['model robustness', 'out-of-distribution generalization', 'Kullback-Leibler divergence', 'Reinforcement Learning from Human Feedback', 'Large Language Models', 'policy optimization algorithms', 'benchmark validation', 'Proximal Policy Optimization', 'weight-space averaging', 'supervised fine-tuned models']
+categories: ['cs.LG']
+problem: Soup-based Alignment Learning for Stronger Adaptation
+solution: ['suboptimal alignment and performance in RLHF']
+pdf_url: http://arxiv.org/pdf/2411.01798v1
+arx_url: http://arxiv.org/abs/2411.01798v1
+score: 6
+authors: ['Atoosa Chegini', 'Hamid Kazemi', 'Iman Mirzadeh', 'Dong Yin', 'Maxwell Horton', 'Moin Nabi', 'Mehrdad Farajtabar', 'Keivan Alizadeh']
+affiliations_aligned: ['University of Maryland', 'Apple', 'Apple', 'Apple', 'Apple', 'Apple', 'Apple', 'Apple']
+affiliations: ['University of Maryland', 'Apple']
+---
+
+
+In Large Language Model (LLM) development, Reinforcement Learning from Human
+Feedback (RLHF) is crucial for aligning models with human values and
+preferences. RLHF traditionally relies on the Kullback-Leibler (KL) divergence
+between the current policy and a frozen initial policy as a reference, which is
+added as a penalty in policy optimization algorithms like Proximal Policy
+Optimization (PPO). While this constraint prevents models from deviating too
+far from the initial checkpoint, it limits exploration of the reward landscape,
+reducing the model's ability to discover higher-quality solutions. As a result,
+policy optimization is often trapped in a narrow region of the parameter space,
+leading to suboptimal alignment and performance. This paper presents SALSA
+(Soup-based Alignment Learning for Stronger Adaptation), a novel approach
+designed to overcome these limitations by creating a more flexible and better
+located reference model through weight-space averaging of two independent
+supervised fine-tuned (SFT) models. This model soup allows for larger deviation
+in KL divergence and exploring a promising region of the solution space without
+sacrificing stability. By leveraging this more robust reference model, SALSA
+fosters better exploration, achieving higher rewards and improving model
+robustness, out-of-distribution generalization, and performance. We validate
+the effectiveness of SALSA through extensive experiments on popular open models
+(Llama2-7B, Mistral-7B, and Gemma-2B) across various benchmarks (MT-Bench,
+Arena-Hard, UltraFeedback), where it consistently surpasses PPO by fostering
+deeper exploration and achieving superior alignment in LLMs.

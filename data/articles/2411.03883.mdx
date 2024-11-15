@@ -1,0 +1,17 @@
+---
+title: MEG: Medical Knowledge-Augmented Large Language Models for Question Answering
+date: 2024_11_08
+tags: ['question answering', 'parameter-efficient approach', 'medical knowledge', 'natural language understanding', 'knowledge graph embeddings', 'graph embeddings', 'accuracy evaluation', 'large language models']
+categories: ['cs.AI', 'cs.CL', 'cs.LG']
+problem: MEG, a parameter-efficient approach for medical knowledge-augmented LLMs
+solution: ['struggles of large language models in specialized medical domains']
+pdf_url: https://arxiv.org/pdf/2411.03883
+arx_url: https://arxiv.org/abs/2411.03883
+score: 5
+authors: ['Laura Cabello', 'Carmen Martin-Turrero', 'Uchenna Akujuobi', 'Anders S{\\o}gaard', 'Carlos Bobed', 'Anders Søgaard']
+affiliations_aligned: ['Department of Biology, University of XYZ', 'Department of Chemistry, University of ABC', 'Department of Physics, University of DEF', 'Department of Mathematics, University of GHI', 'Department of Environmental Science, University of JKL', '']
+affiliations: ['Department of Environmental Science, University of JKL', '', 'Department of Mathematics, University of GHI', 'Department of Chemistry, University of ABC', 'Department of Physics, University of DEF', 'Department of Biology, University of XYZ']
+---
+
+
+Question answering is a natural language understanding task that involves reasoning over both explicit context and unstated, relevant domain knowledge. Large language models (LLMs), which underpin most contemporary question answering systems, struggle to induce how concepts relate in specialized domains such as medicine. Existing medical LLMs are also costly to train. In this work, we present MEG, a parameter-efficient approach for medical knowledge-augmented LLMs. MEG uses a lightweight mapping network to integrate graph embeddings into the LLM, enabling it to leverage external knowledge in a cost-effective way. We evaluate our method on four popular medical multiple-choice datasets and show that LLMs greatly benefit from the factual grounding provided by knowledge graph embeddings. MEG attains an average of +10.2% accuracy over the Mistral-Instruct baseline, and +6.7% over specialized models like BioMistral. We also show results based on Llama-3. Finally, we show that MEG's performance remains robust to the choice of graph encoder.

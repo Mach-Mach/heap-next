@@ -1,0 +1,17 @@
+---
+title: The Empirical Impact of Data Sanitization on Language Models
+date: 2024_11_12
+tags: ['comprehension question answering', 'task-critical entities', 'large language models', 'entailment', 'language models', 'natural language processing', 'privacy', 'content-based subsampling', 'finetuning', 'text classification', 'sensitive content', 'personally identifiable information', 'sentiment analysis', 'benchmark language-modeling tasks', 'performance comparison', 'data sanitization']
+categories: ['cs.CL']
+problem: strategy to repair redacted dataset by content-based subsampling
+solution: ['impact of data sanitization on language understanding capability']
+pdf_url: https://arxiv.org/pdf/2411.05978
+arx_url: https://arxiv.org/abs/2411.05978
+score: 5
+authors: ['Anwesan Pal', 'Radhika Bhargava', 'Kyle Hinsz', 'Jacques Esterhuizen', 'Sudipta Bhattacharya']
+affiliations_aligned: ['', '', '', '', '']
+affiliations: ['']
+---
+
+
+Data sanitization in the context of language modeling involves identifying sensitive content, such as personally identifiable information (PII), and redacting them from a dataset corpus. It is a common practice used in natural language processing (NLP) to maintain privacy. Nevertheless, the impact of data sanitization on the language understanding capability of a language model remains less studied. This paper empirically analyzes the effects of data sanitization across several benchmark language-modeling tasks including comprehension question answering (Q&amp;A), entailment, sentiment analysis, and text classification. Our experiments cover a wide spectrum comprising finetuning small-scale language models, to prompting large language models (LLMs), on both original and sanitized datasets, and comparing their performance across the tasks. Interestingly, our results suggest that for some tasks such as sentiment analysis or entailment, the impact of redaction is quite low, typically around 1-5%, while for tasks such as comprehension Q&amp;A there is a big drop of >25% in performance observed in redacted queries as compared to the original. For tasks that have a higher impact, we perform a deeper dive to inspect the presence of task-critical entities. Finally, we investigate correlation between performance and number of redacted entities, and also suggest a strategy to repair an already redacted dataset by means of content-based subsampling. Additional details are available at https://sites.google.com/view/datasan.

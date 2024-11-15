@@ -1,0 +1,17 @@
+---
+title: BLIP3-KALE: Knowledge Augmented Large-Scale Dense Captions
+date: 2024_11_13
+tags: ['vision-language models', 'image-text pairs', 'synthetic captions', 'BLIP3-KALE', 'web-scale alt-text', 'knowledge-augmented captions', 'multimodal models']
+categories: ['cs.AI', 'cs.CV']
+problem: knowledge-augmented large-scale dense captions
+solution: ['gap between descriptive synthetic captions and factual web-scale alt-text']
+pdf_url: https://arxiv.org/pdf/2411.07461
+arx_url: https://arxiv.org/abs/2411.07461
+score: 4
+authors: ['Anas Awadalla', 'Le Xue', 'Manli Shu', 'An Yan', 'Jun Wang', 'Senthil Purushwalkam', 'Sheng Shen', 'Hannah Lee', 'Oscar Lo', 'Jae Sung Park', 'Etash Guha', 'Silvio Savarese', 'Ludwig Schmidt', 'Yejin Choi', 'Caiming Xiong', 'Ran Xu']
+affiliations_aligned: ['University of Washington', 'Salesforce Research', 'Salesforce Research', 'Salesforce Research', 'Salesforce Research', 'Salesforce Research', 'University of California, Berkeley', 'University of Washington', 'University of Washington', 'University of Washington', 'University of Washington', 'University of Washington', 'University of Washington', 'University of Washington', 'Salesforce Research', 'Salesforce Research']
+affiliations: ['University of California, Berkeley', 'Salesforce Research', 'University of Washington']
+---
+
+
+We introduce BLIP3-KALE, a dataset of 218 million image-text pairs that bridges the gap between descriptive synthetic captions and factual web-scale alt-text. KALE augments synthetic dense image captions with web-scale alt-text to generate factually grounded image captions. Our two-stage approach leverages large vision-language models and language models to create knowledge-augmented captions, which are then used to train a specialized VLM for scaling up the dataset. We train vision-language models on KALE and demonstrate improvements on vision-language tasks. Our experiments show the utility of KALE for training more capable and knowledgeable multimodal models. We release the KALE dataset at https://huggingface.co/datasets/Salesforce/blip3-kale
