@@ -1,0 +1,149 @@
+---
+title: 'Preventing side-channels in the cloud'
+date: 2024-11-12
+categories: [{'term': 'Research Blog', 'scheme': None, 'label': None}]
+url: https://www.microsoft.com/en-us/research/blog/preventing-side-channels-in-the-cloud/
+company: Microsoft
+authors: ['Alyssa Hughes (2ADAPTIVE LLC dba 2A Consulting)']
+summary: <p>Sophisticated side-channel attacks present new security challenges for cloud providers. Learn how Microsoft is exploring defenses against emerging attacks with principled microarchitectural isolation:</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/preventing-side-channels-in-the-cloud/">Preventing side-channels in the cloud</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+---
+
+
+![Icons representing hardware and devices, security, privacy, and
+cryptography, and systems and networking on a blue to green gradient
+background.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/Principled-Microarchitectural-Isolation-
+BlogHeroFeature-1400x788-1.jpg)
+
+Cloud computing delivers scalable and cost-effective compute resources to a
+wide range of customers. The ability for cloud providers to share components
+of the hardware stack across customers, or tenants, is essential for running
+efficient cloud systems. For example, modern central processing units (CPUs)
+pack hundreds of physical hardware threads sharing terabytes of dynamic
+random-access memory (DRAM), which can be flexibly assigned to many
+independent virtual machines (VMs).
+
+Preventing tenants from snooping on others who share the same hardware
+requires security mechanisms. [Microsoft Azure (opens in new
+tab)](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview)
+provides strong protection via comprehensive architectural isolation through
+access control mechanisms implemented across the cloud platform, including the
+hardware and the hypervisor. [Confidential computing (opens in new
+tab)](https://dl.acm.org/doi/pdf/10.1145/3453930) powered by trusted execution
+environments further hardens architectural isolation via hardware memory
+encryption to protect tenants even against privileged attackers.
+
+## A changing threat landscape
+
+Even with perfect architectural isolation, sharing _micro_ architectural
+resources, such as CPU caches and DRAM row buffers, can leak small amounts of
+information, because interference (due to sharing) leads to variations in the
+latency of memory accesses. This gives rise to so-called microarchitectural
+_side-channel attacks_ where a malicious tenant can learn information about
+another tenant, in the worst case: their cryptographic keys.
+
+Microsoft Azure protects tenants and critical infrastructure against currently
+practical side-channel attacks. For example, side-channels in on-core
+resources (e.g., buffers, predictors, private caches) are [comprehensively
+(opens in new
+tab)](https://techcommunity.microsoft.com/t5/virtualization/hyper-v-
+hyperclear-retbleed-update/ba-p/3576717) mitigated by [Hyper-V HyperClear
+(opens in new
+tab)](https://techcommunity.microsoft.com/t5/virtualization/hyper-v-
+hyperclear-mitigation-for-l1-terminal-fault/ba-p/382429) via core scheduling,
+microarchitectural flushing and scrubbing, and virtual-processor address space
+isolation; and our cryptographic libraries are carefully hardened to prevent
+any secrets from being leaked via microarchitectural side-channels.
+
+However, the threat landscape is changing. First, side-channel attacks are
+becoming increasingly sophisticated: For example, recent [academic research
+(opens in new tab)](https://dl.acm.org/doi/pdf/10.1145/3620665.3640403) has
+shown that even cache-coherence directories can be exploited to leak
+information across cores. Second, future CPUs are likely to employ
+increasingly sophisticated microarchitectural optimizations, which are prone
+to new kinds of attacks: For example, the recently introduced data-dependent
+prefetchers have already been found to [leak information (opens in new
+tab)](https://gofetch.fail/).
+
+  * [ ![overhead view of Venice canals and channels](https://www.microsoft.com/en-us/research/uploads/prod/2023/03/Venice_header_1920x720-343x193.jpg) ](https://www.microsoft.com/en-us/research/project/venice/) Project [ Project Venice  ](https://www.microsoft.com/en-us/research/project/venice/)
+
+In Azure Research’s [Project Venice](https://www.microsoft.com/en-
+us/research/project/venice/), we are investigating principled defenses, to be
+prepared in case such emerging attacks start posing a risk to Azure customers.
+
+## Preventing microarchitectural side-channels with resource-exclusive domains
+
+  * Publication [ Principled Microarchitectural Isolation on Cloud CPUs  ](https://www.microsoft.com/en-us/research/publication/principled-microarchitectural-isolation-on-cloud-cpus/)
+
+In a [research paper (opens in new tab)](https://www.microsoft.com/en-
+us/research/publication/principled-microarchitectural-isolation-on-cloud-
+cpus/), which has received a distinguished paper award at the ACM Conference
+on Computer and Communications Security ([ACM CCS’24 (opens in new
+tab)](https://www.sigsac.org/ccs/CCS2024/)), we present a system design that
+can prevent cross-VM microarchitectural side-channels in the cloud. Our design
+provides what we call _resource-exclusive domains_ , which extend the
+architectural abstraction of private physical threads and private memory to
+the microarchitectural level. That is, resource-exclusive domains guarantee
+isolation even against powerful attackers that try to mount side-channel
+attacks on shared microarchitectural resources.
+
+Our approach builds on _isolation schemes_ , a novel abstraction of the way a
+CPU shares microarchitectural structures between its physical threads.
+Isolation schemes can be used by the hypervisor and host operating system to
+assign physical threads and physical memory pages, eliminating the risk of
+information leakage across resource-exclusive domains. Technically, for a
+given assignment of physical threads to resource-exclusive domains, the
+isolation scheme partitions each microarchitectural resource that is shared
+between domains (as this would leak information), but _without_ partitioning
+resources that are private to a domain (as this would affect performance). We
+achieve this using hardware mechanisms, if available, and multi-resource
+memory coloring, if not.
+
+  * Publication [ Gaussian Elimination of Side-channels: Linear Algebra for Memory Coloring  ](https://www.microsoft.com/en-us/research/publication/gaussian-elimination-of-side-channels-linear-algebra-for-memory-coloring/)
+
+In a complementary [research paper (opens in new
+tab)](https://www.microsoft.com/en-us/research/publication/gaussian-
+elimination-of-side-channels-linear-algebra-for-memory-coloring/) (appearing
+at [ACM CCS’24 (opens in new tab)](https://www.sigsac.org/ccs/CCS2024/)), we
+provide the theoretical foundations and practical algorithms for computing
+such multi-resource memory coloring schemes for existing microarchitectures,
+as well as design patterns for future microarchitectures to support a large
+number of resource-exclusive domains.
+
+We have implemented our approach in a research prototype based on Microsoft
+Hyper-V for a modern cloud chiplet-based CPU, AMD EPYC 7543P, that supports
+VM-level trusted execution environments. Using a collection of microbenchmarks
+and cloud benchmarks, we demonstrate that our approach eliminates all
+identified side-channels and incurs only small performance overheads. For
+example, when allocating resources at chiplet and channel granularity (i.e.,
+coupling a chiplet with one of the local DRAM channels) we observe an overhead
+of less than 2%; and only up to 4% when allocating resources at chiplet
+granularity and coloring with 2MB pages.
+
+## Co-designing cloud platforms for future microarchitectural isolation
+
+To validate the effectiveness and practicality of our approach, we inferred
+isolation schemes for a single CPU by reverse-engineering its
+microarchitecture. This approach is incomplete and does not scale to the
+diverse hardware fleet available in the cloud. We are working with CPU vendors
+to develop isolation schemes for future CPUs, which will then be exposed via
+the hardware interface for consumption by the hypervisor’s hardware
+abstraction layer. In this way, we will be able to reap the benefits of
+microarchitectural performance optimizations while continuing to provide
+strong security guarantees to cloud tenants.
+
+**Additional Contributors**
+
+[Cédric Fournet](https://www.microsoft.com/en-us/research/people/fournet),
+Senior Principal Researcher  
+[Jana Hofmann](https://janahofmann.github.io/), Researcher  
+[Oleksii Oleksenko](https://www.microsoft.com/en-
+us/research/people/ololeksenko/), Senior Researcher
+
+Opens in a new tab
+
+The post [Preventing side-channels in the cloud](https://www.microsoft.com/en-
+us/research/blog/preventing-side-channels-in-the-cloud/) appeared first on
+[Microsoft Research](https://www.microsoft.com/en-us/research).
+

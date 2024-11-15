@@ -1,0 +1,167 @@
+---
+title: 'Research Focus: Week of November 11, 2024'
+date: 2024-11-13
+categories: [{'term': 'Research Blog', 'scheme': None, 'label': None}]
+url: https://www.microsoft.com/en-us/research/blog/research-focus-week-of-november-11-2024/
+company: Microsoft
+authors: ['Brenda Potts']
+summary: <p>Holistic motion-capture calibration technique without calibration, manual intervention or custom hardware; Research on AI agents for autonomous clouds; Automating proof-oriented program construction; One-to-many testing for natural language code generation.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-november-11-2024/">Research Focus: Week of November 11, 2024</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+---
+
+
+> Welcome to Research Focus, a series of blog posts that highlights notable
+> publications, events, code/datasets, new hires and other milestones from
+> across the research community at Microsoft.
+
+![Research Focus: Week of November 11, 2024](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/11/RF53-BlogHeroFeature-1400x788-1.jpg)
+
+## NEW RESEARCH
+
+## Look Ma, no markers: holistic performance capture without the hassle
+
+Motion-capture technologies used in film and game production typically focus
+solely on face, body, or hand capture, requiring complex and expensive
+hardware and lots of manual intervention from skilled operators. While
+machine-learning-based approaches can overcome these challenges, they usually
+only support a single camera, often operate on a single part of the body, do
+not produce precise world-space results, and rarely generalize outside
+specific contexts.
+
+In a recent paper: [Look Ma, no markers: holistic performance capture without
+the hassle](https://www.microsoft.com/en-us/research/publication/synthmocap/),
+researchers from Microsoft introduce a technique for marker-free, high-quality
+reconstruction of the complete human body, including eyes and tongue, without
+requiring any calibration, manual intervention or custom hardware. This
+approach produces stable world-space results from arbitrary camera rigs while
+also supporting varied capture environments and clothing. The researchers
+achieve this through a hybrid approach that leverages machine learning models
+trained exclusively on synthetic data and powerful parametric models of human
+shape and motion. They evaluate their method on a number of body, face, and
+hand reconstruction benchmarks and demonstrate state-of-the-art results that
+generalize on diverse datasets.
+
+[Read the paper](https://www.microsoft.com/en-
+us/research/publication/synthmocap/)
+
+* * *
+
+## NEW RESEARCH
+
+## Building AI Agents for Autonomous Clouds: Challenges and Design Principles
+
+Using AI agents for operational resilience of cloud services, which currently
+require significant human effort and domain knowledge, is a high-impact
+application. Interest is growing in AI for IT Operations (AIOps), which aims
+to automate complex operational tasks like fault localization and root cause
+analysis, thereby reducing human intervention and customer impact. However,
+achieving the vision of autonomous and self-healing clouds though AIOps is
+hampered by the lack of standardized frameworks for building, evaluating, and
+improving AIOps agents.
+
+In a recent paper: [Building AI Agents for Autonomous Clouds: Challenges and
+Design Principles](https://www.microsoft.com/en-
+us/research/publication/building-ai-agents-for-autonomous-clouds-challenges-
+and-design-principles/), researchers from Microsoft lay the groundwork for
+such a framework by first framing the requirements and then discussing design
+decisions that satisfy them. The researchers also propose
+[AIOpsLab](https://www.microsoft.com/en-us/research/publication/aiopslab-a-
+holistic-framework-for-evaluating-ai-agents-for-enabling-autonomous-cloud/), a
+prototype implementation leveraging agent-cloud-interface that orchestrates an
+application, injects real-time faults using chaos engineering, and interfaces
+with an agent to localize and resolve the faults. The paper sets the stage for
+building a modular and robust framework for building, evaluating, and
+improving agents for autonomous clouds.
+
+[Read the paper](https://www.microsoft.com/en-
+us/research/publication/building-ai-agents-for-autonomous-clouds-challenges-
+and-design-principles/)
+
+Spotlight: Event Series
+
+[ ![various abstract 3D shapes on a light blue
+background](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/01/MRF-24_WebImage_1400x788.png)
+](https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo)
+
+## Microsoft Research Forum
+
+Join us for a continuous exchange of ideas about research in the era of
+general AI. Watch the first four episodes on demand.
+
+[ Register for series
+](https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo)
+
+Opens in a new tab
+
+## NEW RESEARCH
+
+## Towards Neural Synthesis for SMT-Assisted Proof-Oriented Programming
+
+AI-assisted programming offers great promise, but also raises concerns around
+the trustworthiness of AI-generated code. Proof-oriented languages like[ F*
+(opens in new tab)](https://fstar-lang.org/) enable authoring programs backed
+by machine-checked proofs of correctness. Using AI to generate code and proofs
+in proof-oriented languages helps mitigate these concerns, while also making
+proof-oriented programming more accessible to people.
+
+In a recent preprint: [Towards Neural Synthesis for SMT-Assisted Proof-
+Oriented Programming](https://www.microsoft.com/en-
+us/research/publication/towards-neural-synthesis-for-smt-assisted-proof-
+oriented-programming/), researchers from Microsoft and external colleagues
+explore using AI to automate the construction of proof-oriented programs. The
+researchers curate a dataset of 940,000 lines of open-source F* programs and
+proofs, including software used in production systems ranging from Windows and
+Linux to Python and Firefox. The dataset includes around 54,000 top-level F*
+definitions, each representing a type-directed program and proof synthesis
+problem. A program fragment checker queries F* to check the correctness of
+candidate solutions. With this dataset, the researchers explore using AI to
+synthesize programs and their proofs in F*, finding the performance of fine-
+tuned smaller language models to compare favorably with LLMs, at much lower
+computational cost.
+
+[Read the paper](https://www.microsoft.com/en-us/research/publication/towards-
+neural-synthesis-for-smt-assisted-proof-oriented-programming/)
+
+* * *
+
+## NEW RESEARCH
+
+## One-to-many testing for code generation from (just) natural language
+
+The mostly basic Python programs (MBPP) dataset is commonly used for
+evaluating natural language models on the task of code generation. Despite its
+popularity, the original MBPP has two major problems: it relies on providing
+test cases to generate the right signature and there is poor alignment between
+“what is asked” and “what is evaluated” using the test cases.
+
+To address these challenges, in their recent “[One-to-many testing for code
+generation from (just) natural language](https://www.microsoft.com/en-
+us/research/publication/one-to-many-testing-for-code-generation-from-just-
+natural-language/)" paper, researchers from Microsoft introduce the “mostly
+basic _underspecified_ Python programs” or MBUPP dataset. This dataset adapts
+MBPP to emphasize the natural language aspect by allowing for some syntactic
+ambiguity (like not specifying the return type of a function) and evaluating
+generated code on multiple sets of assertions (like each set covering a
+different return type). Besides iteratively inspecting LLM results to extend
+the assertions sets, the researchers carefully remove poor alignment from the
+instructions (like a specific algorithm to use) and perform a majority vote
+over slightly paraphrased instructions to improve the quality of the dataset.
+The researchers compare popular open and closed weight models on the original
+MBPP and adapted MBUPP datasets to highlight the effect of paraphrasing and
+new test cases on code generation evaluation. The MBUPP dataset is publicly
+available to encourage its use in evaluation code generation models.
+
+[Read the paper](https://www.microsoft.com/en-us/research/publication/one-to-
+many-testing-for-code-generation-from-just-natural-language/)
+
+* * *
+
+Opens in a new tab
+
+The post [Research Focus: Week of November 11,
+2024](https://www.microsoft.com/en-us/research/blog/research-focus-week-of-
+november-11-2024/) appeared first on [Microsoft
+Research](https://www.microsoft.com/en-us/research).
+

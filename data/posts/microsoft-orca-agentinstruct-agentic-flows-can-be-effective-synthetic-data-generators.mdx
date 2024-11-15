@@ -1,0 +1,179 @@
+---
+title: 'Orca-AgentInstruct: Agentic flows can be effective synthetic-data generators'
+date: 2024-11-14
+categories: [{'term': 'Research Blog', 'scheme': None, 'label': None}]
+url: https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/
+company: Microsoft
+authors: ['Brenda Potts']
+summary: <p>Orca-AgentInstruct, from Microsoft Research, can generate diverse, high-quality synthetic data at scale to post-train and fine-tune base LLMs for expanded capabilities, continual learning, and increased performance. </p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/">Orca-AgentInstruct: Agentic flows can be effective synthetic-data generators</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+---
+
+
+![Orca-3 blog - abstract wave graphic](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/07/Orca-3-2024-BlogHeroFeature-1400x788-1.jpg)
+
+Our work on [Orca](https://www.microsoft.com/en-us/research/publication/orca-
+progressive-learning-from-complex-explanation-traces-of-gpt-4/) and [Orca
+2](https://www.microsoft.com/en-us/research/blog/orca-2-teaching-small-
+language-models-how-to-reason/) demonstrated the power of using synthetic data
+for the post-training of small language models and getting them to levels of
+performance previously found only in much larger language models. Orca-
+AgentInstruct is another step in this direction, where we explore using
+agentic flows to generate diverse and high-quality data at scale. Orca-
+AgentInstruct is an agentic solution for synthetic-data generation. By
+leveraging an agentic framework, AgentInstruct can generate tailored datasets,
+comprising both prompts and responses, from raw data sources, paving the way
+to building a synthetic data factory for model fine-tuning.  
+
+The efficacy of this approach is exemplified by the substantial improvement
+observed by fine-tuning a base Mistral 7-billion-parameter model and using
+AgentInstruct to generate a 25-million-pair dataset. The fine-tuned model
+(which we refer to as Orca-3-Mistral) showcases a notable performance gain
+across multiple benchmarks. For example, it shows 40% improvement on AGIEval,
+19% improvement on MMLU, 54% improvement on GSM8K, 38% improvement on BBH, 45%
+improvement on AlpacaEval, and a 31.34% reduction of inaccurate or unreliable
+results across multiple summarization benchmarks.
+
+We are making a 1-million-pair subset ([orca-
+agentinstruct-1M](https://huggingface.co/datasets/microsoft/orca-
+agentinstruct-1M-v1)) of this dataset publicly available, along with a
+[report](https://www.microsoft.com/en-us/research/publication/agentinstruct-
+toward-generative-teaching-with-agentic-flows/) describing the data generation
+procedure, to encourage research on synthetic data generation and finetuning
+of language models.
+
+![Bar graph comparing scores of the Mistral-Instruct-7B model and the
+Mistral-7B post-trained AgentInstruct data \(Orca-3\). The benchmarks are
+AGIEval, MMLU, BBH, GSM8K, AlpaceEval, FOFO and Mirage-RAG. The graph shows
+substantial improvement across different benchmarks for the model fine-tuned
+with AgentInstruct data.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/08/Figure-1-1.png)Figure 1: Effect of using
+AgentInstruct for post-training Mistral-7B.  ![The figure shows the three
+flows used in AgentInstruct: 1\) Content Transformation Flow converts the raw
+seed into an intermediate representation that simplifies the creation of
+instructions tailored to specific objectives. 2\) Seed Instruction Generation
+Flow, comprising multiple agents, takes as input the transformed seed from the
+Content Transformation Flow and generates a set of diverse instructions. 3\)
+Instruction Refinement Flow takes as input the instructions from the Seed
+Instruction Flow and iteratively enhances their complexity and
+quality.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/07/Orca-3_Figure-2.png)Figure 2. This figure
+provides a thematic overview of the roles played by different groups of
+agents. Content Transformation Flow converts the seed into an intermediate
+representation that makes it easier to create high-quality and diverse data.
+Seed Instruction Generation Flow creates instances of the target tasks
+following a taxonomy. Instruction Refinement Flow explores the space further
+by starting from these initial data points and exploring the neighborhood. The
+expectation is that by picking a random seed we will be able to cover the
+entire region of data points.
+
+**Synthetic Data Accelerated LLM Development:** Over the past year, using
+synthetic data has greatly advanced the training of large language models
+(LLMs). It sped up model training at all stages, from pre-training (e.g.,
+Phi-3) to instruction-tuning (e.g., Orca and WizardLM) and reinforcement
+learning from human feedback (e.g., Direct Nash Optimization).
+
+  * [ ![AgentInstruct video thumbnail](https://www.microsoft.com/en-us/research/uploads/prod/2024/07/j-hYRmUUbLU-240x135.jpg) ](https://www.microsoft.com/en-us/research/video/agentinstruct-methodology/) Demo video [ AgentInstruct Methodology  ](https://www.microsoft.com/en-us/research/video/agentinstruct-methodology/)
+
+**Generating high-quality synthetic data is hard:** On the other hand,
+research indicates that pre-training models on synthetic data produced by
+other models can result in model collapse, causing models to progressively
+degrade. Similar concerns have been raised regarding the use of synthetic data
+for post-training, suggesting that it might lead to an imitation process where
+the trained model learns only stylistic features rather than actual
+capabilities.
+
+This discrepancy may be attributed to the challenge of generating high-quality
+and diverse synthetic data.  Successful use of synthetic data involves
+significant human effort in curating and filtering the data to ensure high
+quality.
+
+**Synthetic data meets agents:** Another major development we witnessed during
+the past year is the rise of agentic (especially multi-agent) workflows, such
+as with AutoGen. Agentic workflows can generate high-quality data, which
+surpasses the capabilities of the underlying LLMs, by using flows with
+reflection and iteration that enable agents to look back at solutions,
+generate critiques, and improve solutions. They can also use tools like search
+APIs, calculators, and code interpreters to address LLM limitations.
+
+Multi-agent workflows bring in additional benefits as well, such as simulating
+scenarios where we can generate both new prompts and the corresponding
+responses. They also enable automation of data-generation workflows, reducing
+or eliminating the need for unnecessary human intervention on some tasks.
+
+**AgentInstruct:** Generating synthetic data for post-training or finetuning
+often relies on an existing prompt set that is either used as is or as seeds
+for generating more instructions. In this work, we generalize the problem
+settings to a broader objective of generating an abundant amount of diverse,
+challenging, and high-quality data to teach a particular skill to an AI model.
+We refer to this setting as _generative teaching_.  
+
+AgentInstruct is an agentic solution for generative teaching. AgentInstruct
+uses raw documents as input to create demonstration and feedback data. When
+generic data is used as seeds, AgentInstruct can be used to teach an LLM a
+general capability, such as writing, reasoning, or retrieval-augmented
+generation (RAG). Domain specific data, like retail or finance, can also be
+used as seeds to improve the model in a certain specialization. AgentInstruct
+can create:
+
+  1. **High-quality data:** AgentInstruct uses GPT-4, coupled with tools like search and code interpreters, to create high-quality data.  
+  2. **Diverse data:** AgentInstruct creates prompts and responses using a set of specialized agents (with powerful LLMs, tools, and reflection flows) and a taxonomy (of more than 100 subcategories), , ensuring diversity and quality.
+  3. **Large quantities of data:** AgentInstruct can run autonomously. and applyiflows for verification and data filtering. It does not require seed prompts and uses raw documents for seeding. 
+
+Using raw data as seeds offers two advantages: it is plentiful, allowing
+AgentInstruct to generate large-scale and diverse datasets, and it encourages
+learning general skills instead of benchmark-specific ones by avoiding using
+existing prompts.
+
+Spotlight: Blog post
+
+[ ![White icons representing the Eureka Experiment Pipeline --
+PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing,
+EvalReporting -- on blue to green gradient
+background.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg)
+](https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-
+understanding-progress-in-ai/)
+
+## Eureka: Evaluating and understanding progress in AI
+
+How can we rigorously evaluate and understand state-of-the-art progress in AI?
+Eureka is an open-source framework for standardizing evaluations of large
+foundation models, beyond single-score reporting and rankings. Learn more
+about the extended findings.
+
+[ Read more ](https://www.microsoft.com/en-us/research/blog/eureka-evaluating-
+and-understanding-progress-in-ai/)
+
+Opens in a new tab
+
+We anticipate agentic flows becoming increasingly important throughout the
+model-training lifecycle, including pre-training, post-training, and
+specialization, and ultimately enabling the creation of a synthetic data
+factory for model customization and continuous improvement. This has the
+potential to drive AI advances across multiple industries by making high-
+quality model training more efficient and accessible.
+
+## Contributors:
+
+[Arindam Mitra](https://www.microsoft.com/en-us/research/people/armitra/),
+Luciano Del Corro, [Guoqing Zheng](https://www.microsoft.com/en-
+us/research/people/zheng/), [Shweti Mahajan](https://www.microsoft.com/en-
+us/research/people/shmahaj/), [Dany Rouhana](https://www.microsoft.com/en-
+us/research/people/danyr/), [Andres Codas](https://www.microsoft.com/en-
+us/research/people/andrescodas/), Yadong Lu, Wei-ge Chen, [Olga
+Vrousgou](https://www.microsoft.com/en-us/research/people/olvrousg/), [Corby
+Rosset](https://www.microsoft.com/en-us/research/people/corbyrosset/), Fillipe
+Silva, [Hamed Khanpour](https://www.microsoft.com/en-
+us/research/people/hakhanpo/), [Yash Lara](https://www.microsoft.com/en-
+us/research/people/yashlara/), and [Ahmed
+Awadallah](https://www.microsoft.com/en-us/research/people/hassanam/)
+
+Opens in a new tab
+
+The post [Orca-AgentInstruct: Agentic flows can be effective synthetic-data
+generators](https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-
+agentic-flows-can-be-effective-synthetic-data-generators/) appeared first on
+[Microsoft Research](https://www.microsoft.com/en-us/research).
+
