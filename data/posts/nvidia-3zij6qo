@@ -1,0 +1,24 @@
+---
+title: 'Just Released: NVIDIA TensorRT-LLM 0.13.0'
+date: 2024-10-04
+categories: ['Generative AI', 'featured', 'LLMs']
+url: https://nvda.ws/3ZIj6QO#new_tab
+company: NVIDIA
+authors: ['Jen Witsoe']
+summary: 'Updates include tensor parallel support for Mamba2, sparse mixer normalization for MoE models, and more.'
+---
+
+
+![Decorative image of an atomic model icon connected to a computer
+monitor.](https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/dev-
+tensor-rt-llm-meetup-social-featured.png)Updates include tensor parallel
+support for Mamba2, sparse mixer normalization for MoE models, and
+more.![Decorative image of an atomic model icon connected to a computer
+monitor.](https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/dev-
+tensor-rt-llm-meetup-social-featured.png)
+
+Updates include tensor parallel support for Mamba2, sparse mixer normalization
+for MoE models, and more.
+
+[Source](https://nvda.ws/3ZIj6QO#new_tab)
+
