@@ -1,0 +1,248 @@
+---
+title: 'From static prediction to dynamic characterization: AI2BMD advances protein dynamics with ab initio accuracy'
+date: 2024-11-06
+categories: ['Research Blog']
+url: https://www.microsoft.com/en-us/research/blog/from-static-prediction-to-dynamic-characterization-ai2bmd-advances-protein-dynamics-with-ab-initio-accuracy/
+company: Microsoft
+authors: ['Brenda Potts']
+summary: 'Microsoft Research’s AI2BMD, an AI-based system that efficiently simulates a wide range of proteins in all-atom resolution, can advance drug discovery and biomolecular research.
+The post From static prediction to dynamic characterization: AI2BMD advances protein dynamics with ab initio accuracy appeared first on Microsoft Research.'
+---
+
+
+![AI2BMD blog hero - illustration of a chip with network nodes extending from
+all sides](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/AI2BMD-BlogHeroFeature-1400x788-1.png)
+
+The essence of the biological world lies in the ever-changing nature of its
+molecules and their interactions. Understanding the dynamics and interactions
+of biomolecules is crucial for deciphering the mechanisms behind biological
+processes and for developing biomaterials and drugs. As Richard Feynman
+famously said, “Everything that living things do can be understood in terms of
+the jigglings and wigglings of atoms.” Yet capturing these real-life movements
+is nearly impossible through experiments.
+
+In recent years, with the development of deep learning methods represented by
+AlphaFold and RoseTTAFold, predicting the static crystal protein structures
+has been achieved with experimental accuracy (as recognized by the 2024 Nobel
+Prize in Chemistry). However, accurately characterizing dynamics at an atomic
+resolution remains much more challenging, especially when the proteins play
+their roles and interact with other biomolecules or drug molecules.
+
+As one approach, Molecular Dynamics (MD) simulation combines the laws of
+physics with numerical simulations to tackle the challenge of understanding
+biomolecular dynamics. This method has been widely used for decades to explore
+the relationship between the movements of molecules and their biological
+functions. In fact, the significance of MD simulations was underscored when
+the classic version of this technique was recognized with a [Nobel Prize in
+2013 (opens in new
+tab)](https://www.nobelprize.org/prizes/chemistry/2013/summary/)[ (opens in
+new
+tab)](https://the%20nobel%20prize%20in%20chemistry%202013%20-%20nobelprize.org/),
+highlighting its crucial role in advancing our understanding of complex
+biological systems. Similarly, the quantum mechanical approach—known as
+Density Functional Theory (DFT)—received its own [Nobel Prize in 1998 (opens
+in new tab)](https://www.nobelprize.org/prizes/chemistry/1998/8811-the-nobel-
+prize-in-chemistry-1998/)[ (opens in new
+tab)](https://the%20nobel%20prize%20in%20chemistry%201998%20-%20nobelprize.org/),
+marking a pivotal moment in computational chemistry.  
+
+In MD simulations, molecules are modeled at the atomic level by numerically
+solving equations of motions that account for the system's time evolution,
+through which kinetic and thermodynamic properties can be computed. MD
+simulations are used to model the time-dependent motions of biomolecules. If
+you think of proteins like intricate gears in a clock, AI2BMD doesn’t just
+capture them in place—it watches them spin, revealing how their movements
+drive the complex processes that keep life running.
+
+MD simulations can be roughly divided into two classes: classical MD and
+quantum mechanics. Classical MD employs simplified representations of the
+molecular systems, achieving fast simulation speed for long-time
+conformational changes but less accurate. In contrast, quantum mechanics
+models, such as Density Functional Theory, provide ground-up calculations, but
+are computationally prohibitive for large biomolecules.
+
+## _Ab initio_ biomolecular dynamics simulation by AI
+
+Microsoft Research has been working on the development of efficient methods
+aiming for _ab initio_ accuracy simulations of biomolecules. This method,
+AI2BMD (**AI** -based **a** b **i** nitio **b** io**m** olecular **d** ynamics
+system), has published in [the journal _Nature_ (opens in new
+tab)](https://www.nature.com/articles/s41586-024-08127-z), representing the
+culmination of a four-year research endeavor.
+
+AI2BMD efficiently simulates a wide range of proteins in all-atom resolution
+with more than 10,000 atoms at an approximate _ab initio_ —or _first-
+principles_ —accuracy. It thus strikes a previously inaccessible tradeoff for
+biomolecular simulations than standard simulation techniques - achieving
+higher accuracies than classical simulation, at a computational cost that is
+higher than classical simulation but orders of magnitude faster than what DFT
+could achieve. This development could unlock new capabilities in biomolecular
+modeling, especially for processes where high accuracy is needed, such as
+protein-drug interactions.
+
+![Fig.1 The overall pipeline of AI2BMD. Proteins are divided into protein
+units by a fragmentation process. The AI2BMD potential is designed based on
+ViSNet, and the datasets are generated at the DFT level. It calculates the
+energy and atomic forces for the whole protein. The AI2BMD simulation system
+is built upon these components and provides a generalizable solution for
+simulating the molecular dynamics of proteins. It achieves ab initio accuracy
+in energy and force calculations. Through comprehensive analysis from both
+kinetics and thermodynamics perspectives, AI2BMD exhibits good alignment with
+wet-lab experimental data and detects different phenomena compared to
+molecular mechanics.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/AI2BMD_Fig1.jpg)Figure 1. The flowchart of
+AI2BMD
+
+AI2BMD employs a novel-designed generalizable protein fragmentation approach
+that splits proteins into overlapping units, creating a dataset of 20 million
+snapshots—the largest ever at the DFT level. Based on our previously designed
+[ViSNet (opens in new tab)](https://www.microsoft.com/en-
+us/research/blog/visnet-a-general-molecular-geometry-modeling-framework-for-
+predicting-molecular-properties-and-simulating-molecular-
+dynamics/#:~:text=The%20vector-
+scalar%20interactive%20graph%20neural%20network%20\(ViSNet\)?msockid=15f0bc1a2a64688f2ddaa80d2b1e69e6),
+a universal molecular geometry modeling foundation model [published in _Nature
+Communications_ (opens in new
+tab)](https://www.nature.com/articles/s41467-023-43720-2) and [incorporated
+into PyTorch Geometry library (opens in new tab)](https://pytorch-
+geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.models.ViSNet.html),
+we trained AI2BMD’s potential energy function using machine learning.
+Simulations are then performed by the highly efficient AI2BMD simulation
+system, where at each step, the AI2BMD potential based on ViSNet calculates
+the energy and atomic forces for the protein with _ab initio_ accuracy. By
+comprehensive analysis from both kinetics and thermodynamics, AI2BMD exhibits
+much better alignments with wet-lab data, such as the folding free energy of
+proteins and different phenomenon than classic MD.  
+
+Microsoft research podcast
+
+[ ![photo of Lex Story for the What's Your Story episode of the Microsoft
+Research podcast](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg)
+](https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-
+story/)
+
+## What’s Your Story: Lex Story
+
+Model maker and fabricator Lex Story helps bring research to life through
+prototyping. He discusses his take on failure; the encouragement and advice
+that has supported his pursuit of art and science; and the sabbatical that
+might inspire his next career move.
+
+[ Listen now ](https://www.microsoft.com/en-us/research/podcast/whats-your-
+story-lex-story/)
+
+Opens in a new tab
+
+## Advancing biomolecular MD simulation
+
+AI2BMD represents a significant advancement in the field of MD simulations
+from the following aspects:
+
+(1) **Ab initio accuracy:** introduces a generalizable “machine learning force
+field,” a machine learned model of the interactions between atoms and
+molecules, for full-atom protein dynamics simulations with _ab initio_
+accuracy.
+
+![Fig.2 Evaluation of energy and force calculations by AI2BMD and molecular
+mechanics \(MM\). The upper panel exhibits the folded structures of four
+evaluated proteins. The lower panel exhibits the mean absolute error \(MAE\)
+of potential energy.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/AI2BMD_Fig2_1400px.jpg)Figure 2. Evaluation
+on the energy calculation error between AI2BMD and Molecular Mechanics (MM)
+for different proteins.
+
+(2) **Addressing generalization:** It is the first to address the
+generalization challenge of a machine learned force field for simulating
+protein dynamics, demonstrating robust ab initio MD simulations for a variety
+of proteins.
+
+(3) **General compatibility:** AI2BMD expands the Quantum Mechanics (QM)
+modeling from small, localized regions to entire proteins without requiring
+any prior knowledge on the protein. This eliminates the potential
+incompatibility between QM and MM calculations for proteins and accelerates QM
+region calculation by several orders of magnitude, bringing near _ab initio_
+calculation for full-atom proteins to reality. Consequently, AI2BMD paves the
+road for numerous downstream applications and allows for a fresh perspective
+on characterizing complex biomolecular dynamics.
+
+(4) **Speed advantage:** AI2BMD is several orders of magnitude faster than DFT
+and other quantum mechanics. It supports ab initio calculations for proteins
+with more than 10 thousand atoms, making it one of the fastest AI-driven MD
+simulation programs among multidisciplinary fields.
+
+![Fig.3 Comparison of time consumption between AI2BMD, DFT and other AI driven
+simulation software. The left panel shows the time consumption of AI2BMD and
+DFT. The right panel shows the time consumption of AI2BMD, DPMD and
+Allegro.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/AI2BMD_Fig3_1400px.jpg)Figure 3. Comparison
+of time consumption between AI2BMD, DFT and other AI driven simulation
+software.
+
+(5) **Diverse conformational space exploration:** For the protein folding and
+unfolding simulated by AI2BMD and MM, AI2BMD explores more possible
+conformational space that MM cannot detect. Therefore, AI2BMD opens more
+opportunities to study flexible protein motions during the drug-target binding
+process, enzyme catalysis, allosteric regulations, intrinsic disorder proteins
+and so on, better aligning with the wet-lab experiments and providing more
+comprehensive explanations and guidance to biomechanism detection and drug
+discovery.
+
+![Fig.4 Analysis of the simulation trajectories performed by AI2BMD. In the
+upper panel, AI2BMD folds protein of Chignolin starting from an unfolded
+structure and achieves smaller energy error than MM. In the lower panel, it
+explores more conformational regions that MM cannot
+detect.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/10/AI2BMD_Fig4_1400px.jpg)Figure 4. AI2BMD folds
+protein of Chignolin starting from an unfolded structure, achieves smaller
+energy error than MM and explores more conformational regions that MM cannot
+detect.
+
+(6) **Experimental agreement:** AI2BMD outperforms the QM/MM hybrid approach
+and demonstrates high consistency with wet-lab experiments on different
+biological application scenarios, including J-coupling, enthalpy, heat
+capacity, folding free energy, melting temperature, and pKa calculations.
+
+## Looking ahead
+
+Achieving _ab initio_ accuracy in biomolecular simulations is challenging but
+holds great potential for understanding the mystery of biological systems and
+designing new biomaterials and drugs. This breakthrough is a testament to the
+vision of AI for Science—an initiative to channel the capabilities of
+artificial intelligence to revolutionize scientific inquiry. The proposed
+framework aims to address limitations regarding accuracy, robustness, and
+generalization in the application of machine learning force fields. AI2BMD
+provides generalizability, adaptability, and versatility in simulating various
+protein systems by considering the fundamental structure of proteins, namely
+stretches of amino acids. This approach enhances energy and force calculations
+as well as the estimation of kinetic and thermodynamic properties.
+
+One key application of AI2BMD is its ability to perform highly accurate
+virtual screening for drug discovery. In 2023, at the inaugural [Global AI
+Drug Development competition (opens in new tab)](https://www.msra.cn/zh-
+cn/news/features/ai-drug-rd-algorithm-competition),  AI2BMD made a
+breakthrough by predicting a chemical compound that binds to the main protease
+of SARS-CoV-2. Its precise predictions surpassed those of all other
+competitors, securing first place and showcasing its immense potential to
+accelerate real-world drug discovery efforts.
+
+Since 2022, Microsoft Research also partnered with the Global Health Drug
+Discovery Institute (GHDDI), a nonprofit research institute founded and
+supported by the Gates Foundation, to apply AI technology to design drugs that
+treat diseases that unproportionally affect low- and middle- income countries
+(LMIC), such as tuberculosis and malaria. Now, we have been closely
+collaborating with GHDDI to leverage AI2BMD and other AI capabilities to
+accelerate the drug discovery process.
+
+AI2BMD can help advance solutions to scientific problems and enable new
+biomedical research in drug discovery, protein design, and enzyme engineering.  
+
+Opens in a new tab
+
+The post [From static prediction to dynamic characterization: AI2BMD advances
+protein dynamics with ab initio accuracy](https://www.microsoft.com/en-
+us/research/blog/from-static-prediction-to-dynamic-characterization-ai2bmd-
+advances-protein-dynamics-with-ab-initio-accuracy/) appeared first on
+[Microsoft Research](https://www.microsoft.com/en-us/research).
+
