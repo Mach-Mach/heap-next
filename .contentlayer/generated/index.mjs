@@ -4,11 +4,13 @@ export { isType } from 'contentlayer2/client'
 
 // NOTE During development Contentlayer imports from `.mjs` files to improve HMR speeds.
 // During (production) builds Contentlayer it imports from `.json` files to improve build performance.
-import { allBlogs } from './Blog/_index.mjs'
+import { allArticles } from './Article/_index.mjs'
 import { allAuthors } from './Authors/_index.mjs'
+import { allPosts } from './Post/_index.mjs'
+import { allNewsposts } from './Newspost/_index.mjs'
 
-export { allBlogs, allAuthors }
+export { allArticles, allAuthors, allPosts, allNewsposts }
 
-export const allDocuments = [...allBlogs, ...allAuthors]
+export const allDocuments = [...allArticles, ...allAuthors, ...allPosts, ...allNewsposts]
 
 

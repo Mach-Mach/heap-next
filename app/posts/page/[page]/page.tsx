@@ -1,11 +1,11 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
+import ListLayout from '@/layouts/ListPostLayout'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allArticles } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 
 const POSTS_PER_PAGE = 5
 
 export const generateStaticParams = async () => {
-  const totalPages = Math.ceil(allArticles.length / POSTS_PER_PAGE)
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE)
   const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
 
   return paths
@@ -13,7 +13,7 @@ export const generateStaticParams = async () => {
 
 export default async function Page(props: { params: Promise<{ page: string }> }) {
   const params = await props.params
-  const posts = allCoreContent(sortPosts(allArticles))
+  const posts = allCoreContent(sortPosts(allPosts))
   const pageNumber = parseInt(params.page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
@@ -29,7 +29,7 @@ export default async function Page(props: { params: Promise<{ page: string }> })
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All Posts"
+      title="BigTech Blog Posts"
     />
   )
 }

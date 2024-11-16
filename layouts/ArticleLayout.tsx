@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Post, Authors } from 'contentlayer/generated'
+import type { Article, Authors } from 'contentlayer/generated'
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -23,24 +23,31 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 }
 
 interface LayoutProps {
-  content: CoreContent<Post>
+  content: CoreContent<Blog>
+  authorDetails: CoreContent<Authors>[]
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
   children: ReactNode
 }
 
-export default function PostLayout({ content, next, prev, children }: LayoutProps) {
+export default function ArticleLayout({
+  content,
+  authorDetails,
+  next,
+  prev,
+  children,
+}: LayoutProps) {
   const {
     filePath,
     path,
     slug,
     date,
     title,
-    categories,
-    company,
-    summary,
+    tags,
     authors = [],
-    url,
+    affiliations = [],
+    arx_url,
+    pdf_url,
   } = content
   const basePath = path.split('/')[0]
 

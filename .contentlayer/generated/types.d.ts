@@ -8,35 +8,11 @@ export { isType } from 'contentlayer2/client'
 export type { Markdown, MDX, ImageFieldData, IsoDateTimeString }
 
 /** Document types */
-export type Authors = {
+export type Article = {
   /** File path relative to `contentDirPath` */
   _id: string
   _raw: Local.RawDocumentData
-  type: 'Authors'
-  name: string
-  avatar?: string | undefined
-  occupation?: string | undefined
-  company?: string | undefined
-  email?: string | undefined
-  twitter?: string | undefined
-  bluesky?: string | undefined
-  linkedin?: string | undefined
-  github?: string | undefined
-  layout?: string | undefined
-  /** MDX file body */
-  body: MDX
-  readingTime: json
-  slug: string
-  path: string
-  filePath: string
-  toc: json
-}
-
-export type Blog = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'Blog'
+  type: 'Article'
   title: string
   date: IsoDateTimeString
   tags: string[]
@@ -65,6 +41,76 @@ export type Blog = {
   filePath: string
   toc: json
   structuredData: json
+}
+
+export type Authors = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Authors'
+  name: string
+  avatar?: string | undefined
+  occupation?: string | undefined
+  company?: string | undefined
+  email?: string | undefined
+  twitter?: string | undefined
+  bluesky?: string | undefined
+  linkedin?: string | undefined
+  github?: string | undefined
+  layout?: string | undefined
+  /** MDX file body */
+  body: MDX
+  readingTime: json
+  slug: string
+  path: string
+  filePath: string
+  toc: json
+}
+
+export type Newspost = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Newspost'
+  title: string
+  date: IsoDateTimeString
+  categories: string[]
+  summary?: string | undefined
+  url: string
+  images?: any | undefined
+  authors: string[]
+  company?: string | undefined
+  /** MDX file body */
+  body: MDX
+  readingTime: json
+  slug: string
+  path: string
+  filePath: string
+  toc: json
+  structuredData: json
+}
+
+export type Post = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Post'
+  title: string
+  date: IsoDateTimeString
+  categories: string[]
+  summary?: string | undefined
+  url: string
+  images?: any | undefined
+  authors: string[]
+  company?: string | undefined
+  /** MDX file body */
+  body: MDX
+  readingTime: json
+  slug: string
+  path: string
+  filePath: string
+  toc: json
+  structuredData: json
 }  
 
 /** Nested types */
@@ -75,16 +121,18 @@ export type Blog = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Authors | Blog
-export type DocumentTypeNames = 'Authors' | 'Blog'
+export type DocumentTypes = Article | Authors | Newspost | Post
+export type DocumentTypeNames = 'Article' | 'Authors' | 'Newspost' | 'Post'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
-  allBlogs: Blog[]
+  allArticles: Article[]
   allAuthors: Authors[]
+  allPosts: Post[]
+  allNewsposts: Newspost[]
 }
 
 
@@ -104,8 +152,10 @@ declare global {
 }
 
 export type DocumentTypeMap = {
+  Article: Article
   Authors: Authors
-  Blog: Blog
+  Newspost: Newspost
+  Post: Post
 }
 
 export type NestedTypeMap = {
