@@ -1,4 +1,4 @@
-import ListLayout from '@/layouts/ListPostLayout'
+import ListLayout from '@/layouts/ListNewsLayout'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allNewsposts } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/seo'
