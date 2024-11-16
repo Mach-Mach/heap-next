@@ -1,0 +1,232 @@
+---
+title: 'GraphRAG: Improving global search via dynamic community selection'
+date: 2024-11-15
+categories: ['Research Blog']
+url: https://www.microsoft.com/en-us/research/blog/graphrag-improving-global-search-via-dynamic-community-selection/
+company: Microsoft
+authors: ['Brenda Potts']
+summary: 'Retrieval-augmented generation (RAG) helps AI systems provide more information to a large language model (LLM) when generating responses to user queries. A new method for conducting “global” queries can optimize the performance of global search in GraphRAG.
+The post GraphRAG: Improving global search via dynamic community selection appeared first on Microsoft Research.'
+---
+
+
+![The image features three white icons on a gradient background transitioning
+from blue on the left to green on the right. The first icon, located on the
+left, depicts a hierarchical structure resembling a workflow with connected
+squares. The middle icon represents GraphRAG \(interconnected nodes and
+lines\). The third icon, on the right, shows a globe with a magnifying glass
+overlaying it, symbolizing global search.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/11/GraphRAG-Global-Search-
+BlogHeroFeature-1400x788-1.jpg)
+
+Retrieval-augmented generation (RAG) allows AI systems to provide additional
+information and context to a large language model (LLM) when generating a
+response to a user query. However, traditional RAG-based methods can struggle
+to retrieve information that requires high-level knowledge of the entire
+dataset, especially with abstract and global questions such as the keywordless
+query: “Catch me up on the last two weeks of updates.” These types of queries
+are known as “global” queries, as they require holistic understanding of the
+dataset to answer the question. [GraphRAG](https://www.microsoft.com/en-
+us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/)
+aims to tackle these questions in two main steps: indexing and query. The
+indexing engine first breaks down a collection of text documents into segments
+which are then clustered into hierarchical communities with entities and
+relationships connecting each segment up through higher levels of abstraction.
+We then use an LLM to generate a summary of each community, known as a
+community report. The indexing engine thus creates a hierarchical knowledge
+graph of the dataset, with each level in the hierarchy representing a
+different level of abstraction and summarization of the original material. In
+the query step, GraphRAG uses this structured knowledge to provide additional
+context to the LLM to help answer the question. In this blog post, we show a
+new method for conducting “global” queries that efficiently utilizes the
+knowledge graph representation and optimizes the performance of global search
+in GraphRAG.
+
+## Static vs. dynamic global search
+
+The [global search (opens in new
+tab)](https://microsoft.github.io/graphrag/query/global_search/) algorithm in
+GraphRAG aims to answer abstract questions that require knowledge of the
+entire dataset. It generates answers by searching over communities at a
+predetermined level in the knowledge graph. Then the LLM combines and
+summarizes all the community reports at this level of abstraction. Finally,
+the summary is used as additional context for the LLM to generate the response
+to the user question. This map-reduce process allows the LLM to select
+relevant text from all the community reports to generate its final answer.
+This static approach is expensive and inefficient because it includes many
+lower-level reports that are not informative to the user query. Since it is
+unlikely that all community reports, especially at a high level, are relevant
+in answering the query, an approach that first considers the relevancy of the
+report prior to the resource-intensive map-reduce operation is highly
+desirable.  
+
+Here, we introduce dynamic community selection to the global search algorithm,
+which leverages the knowledge graph structure of the indexed dataset. Starting
+from the root of the knowledge graph, we use an LLM to rate how relevant a
+community report is in answering the user question. If the report is deemed
+irrelevant, we simply remove it and its nodes (or sub-communities) from the
+search process. On the other hand, if the report is deemed relevant, we then
+traverse down its child nodes and repeat the operation. Finally, only relevant
+reports are passed to the map-reduce operation to generate the response to the
+user. Figure 1 illustrates the dynamic community selection process in action.
+
+![An image that shows the workflow of dynamic community selection in global
+search. Each node illustrates a community report, and the arrow indicates the
+rate operation.](https://www.microsoft.com/en-
+us/research/uploads/prod/2024/11/GraphRAG-global-dynamics_Figure-1.png)Figure
+1: Dynamic community selection workflow
+
+The dynamic global search approach has two main benefits. First, it prunes
+irrelevant reports early on, reducing the total number of community reports to
+be considered in the map-reduce operation. Second, it enables users to search
+the entire knowledge graph, instead of predefining a static community level,
+and can lead to more detailed answers. This allows it to collect information
+at various levels of abstraction. Moreover, the rating operation is a
+classification problem, which is considerably easier to perform than
+summarization and text generation, therefore, a less complex model can be
+used. In our experiments leveraging OpenAI’s models, a GPT-4o-mini rater
+achieved a very similar retrieval rate as a GPT-4o rater, while operating at a
+fraction of both cost and time. Overall, we use the smaller and more cost-
+effective model, GPT-4o-mini, in the rate operation to prune any irrelevant
+community reports, then we use GPT-4o to perform the map-reduce operation to
+generate the final response.
+
+## Dynamic community selection on the AP News dataset
+
+To demonstrate the cost saving that dynamic global search brings while
+maintaining a similar response quality, we evaluated the two methods side by
+side on a dataset from AP News. We tested static and dynamic search on 50
+global questions and assessed the final response quality using an LLM
+evaluator. Moreover, we compared the total token cost of the two methods. To
+compare the two methods directly, we constrained the maximum search depth on
+dynamic global search so that both methods used the same underlying
+information.
+
+We use an LLM evaluator to select the best response (i.e. win rate) on 3 key
+metrics:
+
+  * Comprehensiveness: How much detail does the answer provide to cover all the aspects and details of the question?
+  * Diversity: How varied and rich is the answer in providing different perspectives and insights on the question?
+  * Empowerment: How well does the answer help the reader understand and make informed judgements about the topic?
+
+Spotlight: Microsoft research newsletter
+
+[ ![](https://www.microsoft.com/en-
+us/research/uploads/prod/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png)
+](https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html)
+
+## Microsoft Research Newsletter
+
+Stay connected to the research community at Microsoft.
+
+[ Subscribe today ](https://info.microsoft.com/ww-landing-microsoft-research-
+newsletter.html)
+
+Opens in a new tab
+
+## Significant cost reduction while maintaining output quality
+
+The quality of responses generated from dynamic community selection are
+comparable to its static counterpart while reducing the total token cost. Our
+LLM evaluation shows that the output quality of the two methods is similar in
+the three key metrics across the 50 global questions on the AP News dataset,
+with no statistical significance between them. More importantly, we observed a
+significant reduction of total token costs when using the new method, with
+**an average cost reduction of 77%** over the existing static global search at
+community level 1. This is due to the large number of community reports being
+eliminated via the rating process, thus requiring fewer prompt and output
+tokens needed in the map-reduce operation. For instance, the existing static
+global search method processes about 1,500 level 1 community reports in the
+map-reduce operation, while only 470 community reports on average are selected
+in dynamic search to generate the final answer.  
+
+Moreover, if we allow dynamic search to continue the rating process further to
+deeper level community reports, we observe an improvement in its final
+responses. Here, we conducted the same experiment but allowed dynamic search
+to continue until community level 3. Out of the 50 global questions, 29
+included more community reports than our static search baseline, suggesting
+that some community reports at deeper levels are relevant to the user
+question. Indeed, we observed a moderate and statistically significant
+improvement in both comprehensiveness and empowerment.  Using an LLM evaluator
+to score pairs of responses, we observe that dynamic global search scores a
+win rate of 58% and 60%, respectively, against static search at level 1.
+Nevertheless, while the rating operation is performed by a smaller model and
+hence induces negligible cost, it can still lead to a higher overall cost due
+to the increased number of community reports that the map-reduce operation
+processes. In this experiment, the total cost with dynamic search at level 3
+is 34% higher on average. Table 1 summarizes the results of static search at
+level 1 against dynamic search at level 1 and 3.
+
+Dynamic search | Num. queries | Win rate against static search (level 1) | Relative cost  
+---|---|---|---  
+Comprehensiveness | Diversity | Empowerment  
+Level 1 | 50 | 49.5% | 46.0% | 48.0% | -77%  
+Level 3 | 29* | 58.8% | 48.0% | 60.0% | +34%  
+  
+Table 1. LLM evaluation on dynamic search vs static search at different
+community levels on global questions. We show the win rates of dynamic search
+at level 1 and level 3 against static search at level 1, that is the number of
+times the LLM evaluator prefers the generated responses from dynamic search
+over static search. Green background indicates there is statistical
+significance in the win rates, and grey cells if it is not significant. The
+right-most column shows the average relative token cost against static search
+at level 1. * Note that we only evaluate answers from dynamic search at
+community level 3, which contains more community reports than static search at
+level 1.
+
+Overall, dynamic community selection achieved a cost reduction of 77% while
+achieving output quality similar to the baseline static approach. These appear
+to be promising numbers, but what of the result quality? Let’s examine some
+direct side-by-side comparisons with an example:
+
+## Comparable response quality and detail
+
+Query: Across the dataset, describe the common trends in vaccination rates for
+major diseases.  
+---  
+Static global search at level 1 | Global search with dynamic community selection at level 3  
+### Common Trends in Vaccination Rates for Major Diseases  #### Decline in Vaccination Rates  A significant trend observed across various regions is the decline in vaccination rates for major diseases. For instance, Minnesota has experienced a decrease in immunization rates, leading to recent measles outbreaks [Data: Reports (335)]. Similarly, the COVID-19 pandemic has exacerbated this issue, causing a drop in childhood immunization rates in Michigan and other areas [Data: Reports (1231, 915)]. This decline is often attributed to misinformation about vaccines, particularly the false claim linking the MMR vaccine to autism [Data: Reports (912, 1335)].  #### Impact of COVID-19  The COVID-19 pandemic has had a profound impact on vaccination rates. Efforts to increase COVID-19 vaccination rates have been a major focus of public health policies, but the pandemic has also led to a decline in routine vaccinations among children [Data: Reports (920, 194)]. The pandemic has influenced public attitudes towards health measures and vaccinations, contributing to broader public health challenges [Data: Reports (920)]. #### Regional Variations  Vaccination rates vary significantly by region. West Virginia, for example, has one of the strictest school vaccination policies in the U.S., resulting in high child immunization rates [Data: Reports (1199)]. In contrast, Idaho has the highest overall childhood vaccination exemption rate in the U.S., posing significant public health risks [Data: Reports (998)]. Illinois faces challenges with low vaccination rates in schools, leading to measles outbreaks [Data: Reports (108, 82)].  #### Public Health Initiatives  Various public health initiatives have been implemented to address vaccination rates. The CDC plays a crucial role in monitoring and reporting on vaccination rates for diseases such as measles, mumps, and polio, and provides vital information on preventable diseases [Data: Reports (914)]. Programs like the 'Do It For Babydog' sweepstakes in West Virginia encourage vaccination among residents [Data: Reports (1199)]. Additionally, the Bill & Melinda Gates Foundation is heavily involved in funding and supporting vaccination programs for major diseases such as polio, malaria, HIV, and cholera [Data: Reports (1091)].  ### Conclusion  The dataset reveals a complex landscape of vaccination rates influenced by regional policies, public health initiatives, and the impact of the COVID-19 pandemic. While some regions have managed to maintain high vaccination rates through strict policies and public health campaigns, others face significant challenges due to misinformation and exemption rates. Global efforts and collaborations remain crucial in addressing these challenges and improving vaccination coverage worldwide. |  ### Common Trends in Vaccination Rates for Major Diseases  #### Decline in Vaccination Rates  A significant trend observed across the dataset is the decline in vaccination rates for various diseases, including measles, mumps, rubella (MMR), and polio. **This decline is particularly evident among U.S. kindergartners, where vaccination coverage has dropped from 95.2% during the 2019-2020 school year to 93.1% in the 2022-2023 school year**. This reduction falls below the 95% threshold needed to achieve herd immunity, putting approximately 250,000 kindergartners at risk each year [Data: Reports (5668, 15469, 15703, 15481, 15471, +more)].  #### Impact of the COVID-19 Pandemic  The COVID-19 pandemic has had a profound impact on vaccination rates. Efforts to promote COVID-19 vaccinations have been a major focus, with initiatives in regions like Michigan and Illinois offering free meals to students and promoting updated COVID-19 shots [Data: Reports (19125, 15466)]. However, the pandemic has also disrupted routine vaccination programs, leading to lower coverage for diseases such as measles and contributing to recent outbreaks [Data: Reports (15464, 15674, 15482, 15481, +more)].  #### Regional Variations and Legislative Measures  There are notable regional variations in vaccination rates and exemption rates across the United States. For example, West Virginia has implemented strict immunization requirements for children entering school, resulting in high child immunization rates [Data: Reports (5674, 18874, 18899)]. In contrast, states like Minnesota and Illinois have seen increases in non-medical exemptions, contributing to lower vaccination rates and recent outbreaks [Data: Reports (15483, 15481, 108, 2705, +more)].  #### Efforts to Improve Vaccination Rates  Various initiatives and legislative measures have been introduced to address declining vaccination rates. For instance, the Government of Sindh introduced a polio vaccination bill that includes provisions for imprisonment for parents who do not vaccinate their children [Data: Reports (15398)]. In the U.S., the CDC has recommended new COVID-19 shots for everyone aged 6 months and older and has launched initiatives to ensure equitable access to vaccines, especially in developing countries [Data: Reports (15847, 15571, 15691, 15694, +more)].  ### Conclusion  The dataset reveals a complex landscape of vaccination rates influenced by the COVID-19 pandemic, vaccine hesitancy, misinformation, and regional variations. While efforts to improve vaccination rates are ongoing, the decline in immunization coverage poses significant public health risks, highlighting the need for continued vigilance and proactive measures to ensure high vaccination rates and prevent outbreaks of vaccine-preventable diseases.  
+  
+Table 2. Generated response from static search (level 1) and dynamic search
+(level 3) to the same global question on the AP News dataset.
+
+Table 2 shows an example output from static search at level 1 and dynamic
+search at level 3 to the same question. While the two outputs contain similar
+high-level topics, the response from dynamic search provided specific data
+such as the reduction of vaccination rates in certain demographics. We also
+notice that the response from dynamic search made significantly more
+references to the source material, indicated by “[Data Reports]” in the text.
+By selectively providing information that is relevant to the question, this
+alleviates the map-reduce operation from having to filter and process all the
+community reports all at once, and therefore it can generate a response that
+is more comprehensive and specific to the user question.
+
+Overall, dynamic community selection proposes an alternative method to perform
+global search in GraphRAG by leveraging the indexed knowledge graph and the
+usage of cheaper LLM models in the rate relevancy operation. These changes led
+to lower total token cost and potential improvements to response detail and
+quality.
+
+## Availability
+
+  * Blog [ Introducing DRIFT Search: Combining global and local search methods to improve quality and efficiency  ](https://www.microsoft.com/en-us/research/blog/introducing-drift-search-combining-global-and-local-search-methods-to-improve-quality-and-efficiency/)
+
+**You can experiment with dynamic global search on the[GraphRAG GitHub
+repository (opens in new tab)](https://github.com/microsoft/graphrag). **
+
+Dynamic global search is the second of several major optimizations to GraphRAG
+that are being explored. If you are interested in optimizations for local
+questions, please check out our recent blog post on [DRIFT
+search](https://www.microsoft.com/en-us/research/blog/introducing-drift-
+search-combining-global-and-local-search-methods-to-improve-quality-and-
+efficiency/). Stay tuned for our upcoming work, where we explore a radically
+different approach to graph-enabled RAG that is significantly more cost-
+efficient while improving answer quality for both local and global questions.
+
+Opens in a new tab
+
+The post [GraphRAG: Improving global search via dynamic community
+selection](https://www.microsoft.com/en-us/research/blog/graphrag-improving-
+global-search-via-dynamic-community-selection/) appeared first on [Microsoft
+Research](https://www.microsoft.com/en-us/research).
+
